@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content'
+import Base from '../layouts/Base.astro'
+
+export async function getStaticPaths() {
+	const sidor = await getCollection('sidor')
+	// Sidor som har en egen .astro-fil hoppas över här.
+	return sidor.filter((sida) => sida.id !== 'engagera-dig').map((sida) => ({ params: { slug: sida.id }, props: { sida } }))
+}
+
+const { sida } = Astro.props
+const { Content } = await render(sida)
+---
+
+<Base title={sida.data.title} description={sida.data.description}>
+	<article class="container prose">
+		<h1>{sida.data.title}</h1>
+		<Content />
+	</article>
+</Base>

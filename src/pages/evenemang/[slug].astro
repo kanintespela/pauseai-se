@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import { formatDateTime, url } from '../../lib'
+
+export async function getStaticPaths() {
+	const events = await getCollection('evenemang')
+	return events.map((event) => ({ params: { slug: event.id }, props: { event } }))
+}
+
+const { event } = Astro.props
+const { Content } = await render(event)
+---
+
+<Base title={event.data.title} description={event.data.description}>
+	<article class="container prose">
+		<p class="muted"><a href={url('/evenemang')}>Evenemang</a></p>
+		<h1>{event.data.title}</h1>
+		<dl>
+			<dt>När</dt>
+			<dd><time datetime={event.data.date.toISOString()}>{formatDateTime(event.data.date)}</time></dd>
+			<dt>Var</dt>
+			<dd>{event.data.location}</dd>
+		</dl>
+		<Content />
+		{event.data.link && <p><a class="button" href={event.data.link}>Anmälan och mer info</a></p>}
+	</article>
+</Base>
+
+<style>
+	dl {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.25rem 1rem;
+		padding: 1rem;
+		background: var(--bg-alt);
+		border-left: 4px solid var(--brand);
+	}
+	dt {
+		font-weight: 700;
+	}
+	dd {
+		margin: 0;
+	}
+</style>

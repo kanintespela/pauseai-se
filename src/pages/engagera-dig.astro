@@ -1,0 +1,22 @@
+---
+import { getEntry, render } from 'astro:content'
+import Base from '../layouts/Base.astro'
+import OnboardingEmbed from '../components/OnboardingEmbed.astro'
+
+const sida = await getEntry('sidor', 'engagera-dig')
+if (!sida) throw new Error('Saknar src/content/sidor/engagera-dig.md')
+const { Content } = await render(sida)
+---
+
+<Base title="Engagera dig" description={sida.data.description}>
+	<article class="container prose">
+		<h1>Engagera dig</h1>
+		<p>
+			Fyll i formuläret så hör vi av oss och berättar hur du kan vara med. Det tar ett par minuter, och du
+			bestämmer själv hur mycket tid du vill lägga.
+		</p>
+		<OnboardingEmbed />
+		<h2>{sida.data.title}</h2>
+		<Content />
+	</article>
+</Base>

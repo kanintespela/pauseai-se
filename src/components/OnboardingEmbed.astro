@@ -1,0 +1,50 @@
+---
+// Globals anmälningsformulär. Anmälningar hamnar hos PauseAI Global och
+// räknas till Sverige via country-parametern.
+const src = 'https://pauseai.info/embed/onboarding-form?country=Sweden&bg=fff'
+---
+
+<div class="onboarding">
+	<iframe
+		{src}
+		title="Gå med i PauseAI"
+		height="900"
+		loading="lazy"
+		referrerpolicy="no-referrer-when-downgrade"></iframe>
+	<p class="muted fallback">
+		Syns inte formuläret? <a href={src}>Öppna det i ett eget fönster</a>.
+	</p>
+</div>
+
+<script>
+	// Formuläret rapporterar sin höjd vid varje steg; utan detta klipps senare steg av.
+	const iframe = document.querySelector<HTMLIFrameElement>('.onboarding iframe')
+	window.addEventListener('message', (event) => {
+		if (event.origin !== 'https://pauseai.info' || event.source !== iframe?.contentWindow) return
+		const h = event.data?.height
+		if (iframe && typeof h === 'number' && Number.isFinite(h) && h > 0) iframe.height = String(h)
+	})
+</script>
+
+<style>
+	.onboarding {
+		margin: 2rem 0;
+		padding: 0.5rem;
+		background: #fff;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+	}
+	iframe {
+		display: block;
+		width: 100%;
+		border: 0;
+	}
+	.fallback {
+		margin: 0.5rem;
+		font-size: 0.9rem;
+		color: #555;
+	}
+	.fallback a {
+		color: hsl(32, 100%, 35%);
+	}
+</style>

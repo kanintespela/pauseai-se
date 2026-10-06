@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { formatDateTime, url } from '../lib'
+
+interface Props {
+	events: CollectionEntry<'evenemang'>[]
+}
+const { events } = Astro.props
+---
+
+<ul class="events">
+	{
+		events.map((event) => (
+			<li>
+				<time datetime={event.data.date.toISOString()}>{formatDateTime(event.data.date)}</time>
+				<h3><a href={url(`/evenemang/${event.id}`)}>{event.data.title}</a></h3>
+				<p class="muted">{event.data.location}</p>
+				{event.data.description && <p>{event.data.description}</p>}
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.events {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		padding: 1rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+	time {
+		font-weight: 700;
+		color: var(--brand-dark);
+	}
+	h3 {
+		margin: 0.2rem 0;
+		font-size: 1.45rem;
+	}
+	h3 a {
+		color: var(--text);
+		text-decoration: none;
+	}
+	h3 a:hover {
+		color: var(--brand-dark);
+	}
+	p {
+		margin: 0.2rem 0 0;
+	}
+</style>

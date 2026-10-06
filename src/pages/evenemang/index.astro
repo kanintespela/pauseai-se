@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import EventList from '../../components/EventList.astro'
+import { url } from '../../lib'
+
+const all = await getCollection('evenemang')
+// Sidan byggs om vid varje ändring, så "kommande" avser datumet då den senast byggdes.
+const now = Date.now()
+const upcoming = all.filter((e) => e.data.date.valueOf() >= now).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+const past = all.filter((e) => e.data.date.valueOf() < now).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<Base title="Evenemang" description="Kommande evenemang med PauseAI Sverige.">
+	<div class="container prose">
+		<h1>Evenemang</h1>
+		<h2>Kommande</h2>
+		{
+			upcoming.length > 0 ? (
+				<EventList events={upcoming} />
+			) : (
+				<p>
+					Inga planerade evenemang just nu. <a href={url('/engagera-dig')}>Gå med</a> så får du veta när något händer,
+					eller se <a href="https://pauseai.info/events">PauseAI:s internationella evenemang</a>.
+				</p>
+			)
+		}
+		{
+			past.length > 0 && (
+				<>
+					<h2>Tidigare</h2>
+					<EventList events={past} />
+				</>
+			)
+		}
+		<p class="muted">Se även <a href={url('/protester')}>tidigare protester</a>.</p>
+	</div>
+</Base>

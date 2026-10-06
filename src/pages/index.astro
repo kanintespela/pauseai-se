@@ -1,0 +1,258 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../layouts/Base.astro'
+import EventList from '../components/EventList.astro'
+import { formatDate, url } from '../lib'
+
+const now = Date.now()
+const upcoming = (await getCollection('evenemang'))
+	.filter((e) => e.data.date.valueOf() >= now)
+	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+	.slice(0, 3)
+const news = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
+
+// Texterna kommer från den svenska översättningen av pauseai.info.
+const sections = [
+	{
+		title: 'Vi behöver en <u>paus</u>',
+		text: 'Stoppa utvecklingen av de mest kraftfulla generella AI-systemen tills vi vet hur vi gör dem säkra. Detta måste ske internationellt, och det måste ske snart.',
+		cta: 'Läs förslaget',
+		href: '/forslaget'
+	},
+	{
+		title: 'Vi riskerar att <u>tappa kontrollen</u>',
+		text: 'AI kan ge fantastiska fördelar, men kan också urholka vår demokrati, destabilisera vår ekonomi och användas för att skapa kraftfulla cybervapen.',
+		cta: 'Läs om riskerna',
+		href: '/risker'
+	},
+	{
+		title: 'Vi riskerar <u>mänsklig utrotning</u>',
+		text: 'Många AI-labb och experter är överens: AI kan utrota mänskligheten.',
+		cta: 'Hur och varför AI kan döda oss',
+		href: '/existentiell-risk'
+	}
+]
+
+const quotes = [
+	{
+		text: 'Om du tar den existentiella risken på allvar, som jag nu gör, kan det vara ganska rimligt att helt enkelt sluta utveckla de här sakerna vidare.',
+		author: 'Geoffrey Hinton',
+		title: 'Nobelpristagare och "AI:s gudfader"'
+	},
+	{
+		text: 'Att minska risken för utrotning från AI bör vara en global prioritet, i nivå med andra samhällsomfattande risker som pandemier och kärnvapenkrig.',
+		author: 'Uttalande om AI-risk',
+		title: 'Undertecknat av hundratals experter, inklusive de främsta AI-labben och forskarna'
+	},
+	{
+		text: 'Rogue AI kan vara farligt för hela mänskligheten. Att förbjuda kraftfulla AI-system (t.ex. bortom GPT-4:s förmågor) som ges autonomi och handlingsförmåga vore en bra start.',
+		author: 'Yoshua Bengio',
+		title: 'Turingprisvinnare i AI'
+	}
+]
+---
+
+<Base>
+	<section class="hero">
+		<div class="container-wide">
+			<h1>Låt inte AI-bolag spela roulette med vår framtid</h1>
+			<p class="lead">
+				PauseAI Sverige vill att Sverige verkar för ett internationellt stopp för de mest kraftfulla AI-systemen,
+				tills vi vet hur de kan göras säkra.
+			</p>
+			<p class="actions">
+				<a class="button" href={url('/engagera-dig')}>Gå med</a>
+				<a class="button secondary" href={url('/forslaget')}>Vårt förslag</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="container-wide cards">
+		{
+			sections.map((s) => (
+				<article class="card">
+					<h2 set:html={s.title} />
+					<p>{s.text}</p>
+					<a href={url(s.href)}>{s.cta} →</a>
+				</article>
+			))
+		}
+	</section>
+
+	<section class="quotes">
+		<div class="container-wide quote-grid">
+			{
+				quotes.map((q) => (
+					<figure>
+						<blockquote>”{q.text}”</blockquote>
+						<figcaption>
+							<strong>{q.author}</strong>
+							<span>{q.title}</span>
+						</figcaption>
+					</figure>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="container-wide split">
+		<div>
+			<h2>Kommande evenemang</h2>
+			{
+				upcoming.length > 0 ? (
+					<EventList events={upcoming} />
+				) : (
+					<p>Inga planerade evenemang just nu.</p>
+				)
+			}
+			<p><a href={url('/evenemang')}>Alla evenemang →</a></p>
+		</div>
+		<div>
+			<h2>Nyheter</h2>
+			<ul class="news">
+				{
+					news.map((n) => (
+						<li>
+							<time class="muted" datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time>
+							<a href={url(`/nyheter/${n.id}`)}>{n.data.title}</a>
+						</li>
+					))
+				}
+			</ul>
+			<p><a href={url('/nyheter')}>Alla nyheter →</a></p>
+		</div>
+	</section>
+
+	<section class="cta">
+		<div class="container-wide">
+			<h2><u>Du</u> kan hjälpa</h2>
+			<p>
+				För få människor är väl insatta i de potentiella riskerna med AI. Informera andra och hjälp till att stoppa
+				den här kapplöpningen mot botten.
+			</p>
+			<a class="button" href={url('/engagera-dig')}>Engagera dig</a>
+		</div>
+	</section>
+</Base>
+
+<style>
+	.hero {
+		padding: 4rem 0 3rem;
+		background: linear-gradient(135deg, var(--brand-subtle), var(--bg) 70%);
+		border-bottom: 1px solid var(--border);
+	}
+	.hero h1 {
+		max-width: 16ch;
+		font-size: clamp(2.6rem, 8vw, 5rem);
+		line-height: 0.95;
+	}
+	.lead {
+		max-width: 38rem;
+		font-size: 1.2rem;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+	.button.secondary {
+		background: transparent;
+		color: var(--text);
+		box-shadow: inset 0 0 0 2px var(--text);
+	}
+	.button.secondary:hover {
+		background: var(--text);
+		color: var(--bg);
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1.5rem;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+	.card {
+		padding: 1.5rem;
+		border-top: 6px solid var(--brand);
+		background: var(--bg-alt);
+	}
+	.card h2 {
+		margin-top: 0;
+	}
+	.card a {
+		font-weight: 700;
+	}
+	.quotes {
+		padding: 3rem 0;
+		background: #111;
+		color: #f2f2f2;
+	}
+	.quote-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 2rem;
+	}
+	figure {
+		margin: 0;
+	}
+	.quotes blockquote {
+		margin: 0 0 1rem;
+		padding: 0;
+		border: 0;
+		background: none;
+		font-size: 1.15rem;
+	}
+	figcaption strong {
+		display: block;
+		color: var(--brand);
+		font-family: var(--font-heading);
+		font-size: 1.3rem;
+		text-transform: uppercase;
+	}
+	figcaption span {
+		font-size: 0.9rem;
+		color: #bbb;
+	}
+	.split {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: 2rem 3rem;
+		padding-top: 3rem;
+	}
+	.news {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.news li {
+		display: flex;
+		flex-direction: column;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+	.news a {
+		font-weight: 700;
+	}
+	.cta {
+		margin-top: 3rem;
+		padding: 3rem 0;
+		background: var(--brand);
+		color: #000;
+	}
+	.cta h2 {
+		margin-top: 0;
+		font-size: clamp(2rem, 6vw, 3rem);
+	}
+	.cta p {
+		max-width: 38rem;
+	}
+	.cta .button {
+		background: #000;
+		color: #fff;
+	}
+	.cta .button:hover {
+		background: #333;
+		color: #fff;
+	}
+</style>

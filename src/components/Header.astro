@@ -1,0 +1,138 @@
+---
+import Logo from './Logo.astro'
+import { menu, url } from '../lib'
+
+const current = Astro.url.pathname.replace(/\/$/, '')
+---
+
+<header class="site-header">
+	<div class="container-wide inner">
+		<a class="home" href={url('/')} aria-label="PauseAI Sverige, startsida">
+			<Logo />
+			<span class="country">Sverige</span>
+		</a>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="huvudmeny" hidden>Meny</button>
+		<nav id="huvudmeny" class="menu" aria-label="Huvudmeny">
+				<ul>
+					{
+						menu.map((item) => (
+							<li>
+								<a href={url(item.href)} aria-current={current === url(item.href) ? 'page' : undefined}>
+									{item.label}
+								</a>
+							</li>
+						))
+					}
+					<li><a class="button donate" href={url('/donera')}>Donera</a></li>
+				</ul>
+		</nav>
+	</div>
+</header>
+
+<script>
+	// Utan JavaScript visas menyn alltid; med JavaScript fälls den ihop på mobil.
+	const button = document.querySelector<HTMLButtonElement>('.menu-toggle')
+	const nav = document.getElementById('huvudmeny')
+	if (button && nav) {
+		button.hidden = false
+		nav.dataset.collapsible = ''
+		button.addEventListener('click', () => {
+			const open = button.getAttribute('aria-expanded') !== 'true'
+			button.setAttribute('aria-expanded', String(open))
+			nav.toggleAttribute('data-open', open)
+		})
+	}
+</script>
+
+<style>
+	.site-header {
+		border-bottom: 1px solid var(--border);
+		background: var(--bg);
+	}
+	.inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem 1rem;
+		min-height: 4.5rem;
+		flex-wrap: wrap;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+	}
+	.home {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--text);
+		text-decoration: none;
+	}
+	.home :global(.logo) {
+		width: 9.5rem;
+	}
+	.country {
+		font-family: var(--font-heading);
+		font-size: 1.2rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--brand-dark);
+		padding-top: 0.15rem;
+	}
+	.menu-toggle {
+		font: inherit;
+		font-family: var(--font-heading);
+		font-size: 1.2rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--text);
+		background: none;
+		padding: 0.2rem 0.75rem;
+		border: 2px solid var(--text);
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.menu a:not(.button) {
+		font-family: var(--font-heading);
+		font-size: 1.3rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: var(--text);
+	}
+	.menu a:not(.button):hover,
+	.menu a[aria-current='page'] {
+		color: var(--brand-dark);
+	}
+	.donate {
+		font-size: 1.15rem;
+		padding: 0.3rem 0.9rem;
+	}
+
+	@media (max-width: 59.99rem) {
+		.menu {
+			flex-basis: 100%;
+		}
+		.menu[data-collapsible]:not([data-open]) {
+			display: none;
+		}
+		.menu li {
+			padding: 0.45rem 0;
+			border-top: 1px solid var(--border);
+		}
+	}
+
+	@media (min-width: 60rem) {
+		.menu-toggle {
+			display: none;
+		}
+		ul {
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+		}
+	}
+</style>

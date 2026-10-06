@@ -1,0 +1,178 @@
+/* Färger och typsnitt följer PauseAI:s grafiska profil. */
+
+:root {
+	--brand: #ff9416;
+	--brand-dark: hsl(32, 100%, 40%);
+	--brand-subtle: hsl(32, 100%, 94%);
+	--text: #111;
+	--text-muted: #555;
+	--bg: #fff;
+	--bg-alt: #faf7f2;
+	--border: #e6e0d8;
+
+	--font-body: 'Roboto Slab', Georgia, serif;
+	--font-heading: 'Saira Condensed', Impact, sans-serif;
+
+	--page-width: 44rem;
+	--wide-width: 72rem;
+	--gutter: 1rem;
+
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--brand-dark: hsl(32, 100%, 60%);
+		--brand-subtle: hsl(32, 40%, 14%);
+		--text: #f2f2f2;
+		--text-muted: #b5b5b5;
+		--bg: #121212;
+		--bg-alt: #1b1915;
+		--border: #333;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-body);
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+	line-height: 1.1;
+	margin: 2rem 0 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+h1 {
+	font-size: clamp(2.25rem, 6vw, 3.25rem);
+	margin-top: 0;
+}
+
+h2 {
+	font-size: 1.9rem;
+}
+
+h3 {
+	font-size: 1.4rem;
+}
+
+a {
+	color: var(--brand-dark);
+	text-underline-offset: 0.15em;
+}
+
+a:hover {
+	color: var(--brand);
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+blockquote {
+	margin: 1.5rem 0;
+	padding: 0.5rem 1rem;
+	border-left: 4px solid var(--brand);
+	background: var(--bg-alt);
+}
+
+table {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: 0.4rem 0.6rem;
+	border: 1px solid var(--border);
+	text-align: left;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--border);
+	margin: 2.5rem 0;
+}
+
+.container {
+	width: 100%;
+	max-width: var(--page-width);
+	margin: 0 auto;
+	padding: 0 var(--gutter);
+}
+
+.container-wide {
+	width: 100%;
+	max-width: var(--wide-width);
+	margin: 0 auto;
+	padding: 0 var(--gutter);
+}
+
+.button {
+	display: inline-block;
+	padding: 0.6rem 1.2rem;
+	background: var(--brand);
+	color: #000;
+	font-family: var(--font-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+.button:hover {
+	background: var(--brand-dark);
+	color: #000;
+}
+
+.muted {
+	color: var(--text-muted);
+}
+
+.prose {
+	padding-top: 2rem;
+	padding-bottom: 3rem;
+}
+
+.prose > :first-child {
+	margin-top: 0;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
