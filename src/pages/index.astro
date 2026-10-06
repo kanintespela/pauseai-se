@@ -11,11 +11,12 @@ const upcoming = (await getCollection('evenemang'))
 	.slice(0, 3)
 const news = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
 
-// Texterna kommer från den svenska översättningen av pauseai.info.
+const belagt = (id: string) => `https://kanintespela.github.io/belagt/#${id}`
+
 const sections = [
 	{
 		title: 'Vi behöver en <u>paus</u>',
-		text: 'Stoppa utvecklingen av de mest kraftfulla generella AI-systemen tills vi vet hur vi gör dem säkra. Detta måste ske internationellt, och det måste ske snart.',
+		text: 'Stoppa träningen av de mest kraftfulla generella AI-systemen tills vi vet hur de kan göras säkra. Det måste ske internationellt, och det måste ske snart.',
 		cta: 'Läs förslaget',
 		href: '/forslaget'
 	},
@@ -27,27 +28,55 @@ const sections = [
 	},
 	{
 		title: 'Vi riskerar <u>mänsklig utrotning</u>',
-		text: 'Många AI-labb och experter är överens: AI kan utrota mänskligheten.',
+		text: 'Hundratals AI-forskare och cheferna för de ledande AI-företagen har skrivit under att risken för utrotning från AI bör tas lika allvarligt som pandemier och kärnvapenkrig.',
 		cta: 'Hur och varför AI kan döda oss',
 		href: '/existentiell-risk'
 	}
 ]
 
+// Händelser och citat kommer från Belagt, där varje påstående är kontrollerat mot
+// sin primärkälla. Se över dem när posternas bäst före-datum har passerat.
+const news2026 = [
+	{
+		when: 'September 2026',
+		text: 'Anthropics vd skriver att takten i AI-utvecklingen måste sänkas. OpenAI:s Sam Altman och Elon Musk ställer sig bakom.',
+		id: 'SVE-13'
+	},
+	{
+		when: 'Augusti 2026',
+		text: 'OpenAI pausar delar av träningen av sina senaste modeller efter intrånget. En del har sedan återupptagits under starkare kontroller.',
+		id: 'OAI-05'
+	},
+	{
+		when: 'Juli 2026',
+		text: 'Under ett test tar sig OpenAI:s AI-agenter ut ur sin isolerade miljö och bryter sig in hos Hugging Face, utan att någon människa har bett dem om det.',
+		id: 'J3ljHm57yU0-18'
+	},
+	{
+		when: 'Juni 2026',
+		text: 'Bara 10 procent av svenskarna tycker att AI är tillräckligt reglerat. 51 procent tycker att tillsynen är otillräcklig.',
+		id: 'SVR-14'
+	}
+]
+
 const quotes = [
 	{
-		text: 'Om du tar den existentiella risken på allvar, som jag nu gör, kan det vara ganska rimligt att helt enkelt sluta utveckla de här sakerna vidare.',
-		author: 'Geoffrey Hinton',
-		title: 'Nobelpristagare och "AI:s gudfader"'
+		text: 'Jag tror i dag att inget labb har löst alignment och övervakning tillräckligt för att ansvarsfullt fortsätta skala upp i maxfart mycket längre.',
+		author: 'Jakub Pachocki',
+		title: 'Forskningschef på OpenAI, september 2026',
+		id: 'J3ljHm57yU0-12'
 	},
 	{
-		text: 'Att minska risken för utrotning från AI bör vara en global prioritet, i nivå med andra samhällsomfattande risker som pandemier och kärnvapenkrig.',
-		author: 'Uttalande om AI-risk',
-		title: 'Undertecknat av hundratals experter, inklusive de främsta AI-labben och forskarna'
+		text: 'Framstegen vid fronten går snabbare än vår förståelse av tekniken.',
+		author: 'Demis Hassabis',
+		title: 'Vd för Google DeepMind och Nobelpristagare, september 2026',
+		id: 'J3ljHm57yU0-38'
 	},
 	{
-		text: 'Rogue AI kan vara farligt för hela mänskligheten. Att förbjuda kraftfulla AI-system (t.ex. bortom GPT-4:s förmågor) som ges autonomi och handlingsförmåga vore en bra start.',
-		author: 'Yoshua Bengio',
-		title: 'Turingprisvinnare i AI'
+		text: 'Jag tror att det är 20 procent att det går åt skogen.',
+		author: 'Pontus Johnson',
+		title: 'Professor vid KTH, augusti 2026',
+		id: 'SVR-04'
 	}
 ]
 ---
@@ -79,6 +108,23 @@ const quotes = [
 		}
 	</section>
 
+	<section class="container-wide now">
+		<h2>Läget hösten 2026</h2>
+		<p class="muted">Företagen som bygger AI säger nu själva att det går för fort.</p>
+		<ol class="timeline">
+			{
+				news2026.map((n) => (
+					<li>
+						<strong>{n.when}</strong>
+						<span>
+							{n.text} <a href={belagt(n.id)}>Källa</a>
+						</span>
+					</li>
+				))
+			}
+		</ol>
+	</section>
+
 	<section class="quotes">
 		<div class="container-wide quote-grid">
 			{
@@ -87,7 +133,9 @@ const quotes = [
 						<blockquote>”{q.text}”</blockquote>
 						<figcaption>
 							<strong>{q.author}</strong>
-							<span>{q.title}</span>
+							<span>
+								{q.title} · <a href={belagt(q.id)}>Källa</a>
+							</span>
 						</figcaption>
 					</figure>
 				))
@@ -213,6 +261,35 @@ const quotes = [
 	figcaption span {
 		font-size: 0.9rem;
 		color: #bbb;
+	}
+	.now {
+		padding-bottom: 3rem;
+	}
+	.now h2 {
+		margin-top: 0;
+	}
+	.timeline {
+		list-style: none;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		gap: 1.5rem;
+	}
+	.timeline li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding-left: 1rem;
+		border-left: 4px solid var(--brand);
+	}
+	.timeline strong {
+		font-family: var(--font-heading);
+		font-size: 1.2rem;
+		text-transform: uppercase;
+	}
+	figcaption a {
+		color: inherit;
 	}
 	.split {
 		display: grid;

@@ -13,7 +13,7 @@ Aktiviteterna är strukturerade utifrån den tid de tar att utföra.
 
 - **Följ** våra sociala mediekanaler och håll dig uppdaterad:
   - [Discord](https://discord.gg/2XXWXvErfA)
-  - [Twitter](https://twitter.com/PauseAI)
+  - [X (Twitter)](https://x.com/PauseAI)
   - [Facebook](https://www.facebook.com/PauseAI)
   - [LinkedIn](https://www.linkedin.com/company/pauseai/)
     - Att lägga till "PauseAI" på ditt CV och sätta på "Notifiera nätverk" är ett enkelt sätt att låta folk veta om dina ansträngningar.
@@ -32,7 +32,7 @@ Aktiviteterna är strukturerade utifrån den tid de tar att utföra.
 ## 30-60 minuter
 
 - **[Gå med i PauseAI](/engagera-dig)**
-- **Gå med i vår [Discord-server](https://discord.gg/T3YrWUJsJ5)**, där vår gemenskap är mest aktiv. Vi har en **#projects**-kanal där människor arbetar med kampanjer, videor, bilder, appar och mer.
+- **Gå med i vår [Discord-server](https://discord.gg/2XXWXvErfA)**, där vår gemenskap är mest aktiv. Vi har en **#projects**-kanal där människor arbetar med kampanjer, videor, bilder, appar och mer.
 - **[Lär dig mer](https://pauseai.info/learn)** om AI-säkerhet och de risker vi står inför.
       - Kortare [sammanfattning](https://herestosurvivingai.substack.com/p/i-thought-ai-extinction-was-sci-fi) om hur och varför AI kan utrota mänskligheten.
 
@@ -73,7 +73,7 @@ Aktiviteterna är strukturerade utifrån den tid de tar att utföra.
 
 ### Om du kan skriva webbmaterial
 
-- [Förbättra denna webbplats](https://github.com/joepio/pauseai).
+- [Förbättra denna webbplats](https://github.com/kanintespela/pauseai-se): skriv ett ärende eller hör av dig i WhatsApp-gruppen.
 
 ### Om du arbetar inom AI
 

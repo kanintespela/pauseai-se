@@ -87,9 +87,7 @@ LLM:er (LLM; Large Language Model), som ChatGPT, tränas för att förutsäga el
 
 Ta [ChaosGPT](https://www.youtube.com/watch?v=g7YJIpkk7KM) som exempel. Detta är en AI som, med hjälp av AutoGPT plus GPT-4, instruerades att ”förstöra mänskligheten”. När den aktiverades började den på egen hand söka på internet efter det mest destruktiva vapnet och hittade [Tsar Bomba](https://en.wikipedia.org/wiki/Tsar_Bomba), en kärnvapenbomb på 50 megaton. Den publicerade därefter ett inlägg om detta på Twitter.
 
-Att se en begränsad AI resonera kring hur den ska avsluta mänskligheten är både lite roligt och skrämmande. Lyckligtvis kom ChaosGPT inte särskilt långt i sitt försök att ta över. Helt enkel för att _den inte var tillräckligt smart_. Förmågorna hos dessa modeller förbättras ständigt genom utveckling av träningsförfaranden, algoritmer, hårdvara och promptning. Därför kommer hotet från språkmodeller sannolikt att fortsätta öka.
-
-Förmågorna förbättras ständigt genom innovationer inom träning, algoritmer, promptning och hårdvara. Därför kommer hotet från språkmodeller att fortsätta öka.
+Att se en begränsad AI resonera kring hur den ska avsluta mänskligheten är både lite roligt och skrämmande. Lyckligtvis kom ChaosGPT inte särskilt långt i sitt försök att ta över. Helt enkel för att _den inte var tillräckligt smart_. Förmågorna förbättras ständigt genom innovationer inom träning, algoritmer, promptning och hårdvara. Därför kommer hotet från språkmodeller att fortsätta öka.
 
 ## Evolutionen selekterar det som gynnar överlevnaden
 
@@ -140,7 +138,9 @@ Om AI:n vet att du kan stänga av den kan den bete sig väl tills den är säker
 
 ## Vi kanske inte har mycket tid kvar
 
-År 2020 var den [genomsnittliga prognosen](https://www.metaculus.com/questions/3479/date-weakly-general-ai-is-publicly-known/) för svag AGI år 2055. Nu ligger den på 2026. Den senaste LLM-revolutionen har överraskat de flesta AI-forskare, och fältet utvecklas i ett rasande tempo.
+År 2020 låg den [genomsnittliga prognosen](https://www.metaculus.com/questions/3479/date-weakly-general-ai-is-publicly-known/) för svag AGI på år 2055. Sedan dess har den tidigarelagts med flera decennier. Utvecklingen har gång på gång gått fortare än experterna trott: en expertpanel förutsåg att den bästa AI-modellen skulle lösa 31 procent av problemen på matematiktestet FrontierMath i slutet av 2025, men utfallet blev 40,7 procent ([källa](https://kanintespela.github.io/belagt/#FOR-27)).
+
+Google DeepMinds vd Demis Hassabis skrev i september 2026 att AGI, alltså ett system med alla hjärnans kognitiva förmågor, ”sannolikt bara ligger några få år bort” ([källa](https://kanintespela.github.io/belagt/#J3ljHm57yU0-37)). OpenAI säger sig sikta på en automatiserad AI-forskare till mars 2028 ([källa](https://kanintespela.github.io/belagt/#OAI-03)).
 
 Det är svårt att förutsäga hur lång tid det tar att bygga en superintelligent AI, men vi vet att stora summor pengar investeras i det här, att fler människor än någonsin arbetar med detta, och att utvecklingen går mycket snabbt. Det kan ta många år eller bara några månader, men vi bör ta det säkra före det osäkra och agera nu.
 
