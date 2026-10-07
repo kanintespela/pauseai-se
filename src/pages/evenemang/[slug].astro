@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content'
 import Base from '../../layouts/Base.astro'
-import { formatDateTime, url } from '../../lib'
+import { formatDateTime, isUpcoming, url } from '../../lib'
 
 export async function getStaticPaths() {
 	const events = await getCollection('evenemang')
@@ -10,12 +10,14 @@ export async function getStaticPaths() {
 
 const { event } = Astro.props
 const { Content } = await render(event)
+const upcoming = isUpcoming(event.data.date)
 ---
 
 <Base title={event.data.title} description={event.data.description}>
 	<article class="container prose">
 		<p class="muted"><a href={url('/evenemang')}>Evenemang</a></p>
 		<h1>{event.data.title}</h1>
+		{!upcoming && <p class="muted"><strong>Det här evenemanget har redan ägt rum.</strong></p>}
 		<dl>
 			<dt>När</dt>
 			<dd><time datetime={event.data.date.toISOString()}>{formatDateTime(event.data.date)}</time></dd>
@@ -23,7 +25,7 @@ const { Content } = await render(event)
 			<dd>{event.data.location}</dd>
 		</dl>
 		<Content />
-		{event.data.link && <p><a class="button" href={event.data.link}>Anmälan och mer info</a></p>}
+		{upcoming && event.data.link && <p><a class="button" href={event.data.link}>Anmälan och mer info</a></p>}
 	</article>
 </Base>
 
