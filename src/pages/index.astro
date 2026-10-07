@@ -2,11 +2,10 @@
 import { getCollection } from 'astro:content'
 import Base from '../layouts/Base.astro'
 import EventList from '../components/EventList.astro'
-import { formatDate, url } from '../lib'
+import { formatDate, isUpcoming, url } from '../lib'
 
-const now = Date.now()
 const upcoming = (await getCollection('evenemang'))
-	.filter((e) => e.data.date.valueOf() >= now)
+	.filter((e) => isUpcoming(e.data.date))
 	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
 	.slice(0, 3)
 const news = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)

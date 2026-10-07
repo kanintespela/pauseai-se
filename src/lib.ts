@@ -24,3 +24,8 @@ export const menu = [
 	{ href: '/faq', label: 'FAQ' },
 	{ href: '/om-oss', label: 'Om oss' }
 ]
+
+// Ett evenemang räknas som kommande hela dagen det äger rum, i svensk tid, så att det
+// inte försvinner från listan mitt under evenemanget.
+const dayFormat = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'short', timeZone: 'Europe/Stockholm' })
+export const isUpcoming = (date: Date, now = new Date()) => dayFormat.format(date) >= dayFormat.format(now)
