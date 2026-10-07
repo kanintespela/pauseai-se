@@ -23,10 +23,12 @@ content:
     fields:
       - name: title
         label: Rubrik
+        description: Kort och konkret, till exempel "Vi demonstrerade utanför riksdagen".
         type: string
         required: true
       - name: date
         label: Datum
+        description: Dagen nyheten publiceras. Nyheter sorteras efter datum, nyast först.
         type: date
         required: true
         options:
@@ -37,9 +39,11 @@ content:
         type: text
       - name: image
         label: Bild
+        description: Valfri. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns om lov. Helst under 1 MB.
         type: image
       - name: body
         label: Text
+        description: Själva nyheten. Använd knapparna eller skriv / för rubriker, listor, länkar och bilder.
         type: rich-text
         options:
           format: markdown
@@ -59,10 +63,12 @@ content:
     fields:
       - name: title
         label: Namn på evenemanget
+        description: Till exempel "Föreläsning om AI-risker i Lund".
         type: string
         required: true
       - name: date
         label: Datum och tid
+        description: När evenemanget börjar, i svensk tid. Evenemanget visas under Kommande fram till dess.
         type: date
         required: true
         options:
@@ -75,6 +81,7 @@ content:
         required: true
       - name: link
         label: Länk till anmälan eller mer info
+        description: Hela adressen, med https:// i början. Lämna tomt om det inte finns någon.
         type: string
       - name: description
         label: Kort beskrivning
@@ -82,6 +89,7 @@ content:
         type: text
       - name: body
         label: Mer information
+        description: Vad som händer, vem det passar och om man behöver anmäla sig.
         type: rich-text
         options:
           format: markdown
@@ -97,14 +105,24 @@ content:
     fields:
       - name: title
         label: Rubrik
+        description: Visas överst på sidan och i webbläsarens flik.
         type: string
         required: true
       - name: description
         label: Beskrivning
         description: Visas i sökmotorer och när länken delas.
         type: text
+      - name: knapp_text
+        label: Knapp, text
+        description: Valfri. En stor knapp under rubriken, till exempel "Donera via PauseAI Global". Kräver också en länk.
+        type: string
+      - name: knapp_lank
+        label: Knapp, länk
+        description: Vart knappen leder. En adress på sajten (till exempel /engagera-dig) eller en hel adress med https://.
+        type: string
       - name: body
         label: Text
+        description: Sidans innehåll. Använd knapparna eller skriv / för rubriker, listor, länkar och bilder.
         type: rich-text
         options:
           format: markdown

@@ -34,7 +34,7 @@ Aktiviteterna är strukturerade utifrån den tid de tar att utföra.
 - **[Gå med i PauseAI](/engagera-dig)**
 - **Gå med i vår [Discord-server](https://discord.gg/2XXWXvErfA)**, där vår gemenskap är mest aktiv. Vi har en **#projects**-kanal där människor arbetar med kampanjer, videor, bilder, appar och mer.
 - **[Lär dig mer](https://pauseai.info/learn)** om AI-säkerhet och de risker vi står inför.
-      - Kortare [sammanfattning](https://herestosurvivingai.substack.com/p/i-thought-ai-extinction-was-sci-fi) om hur och varför AI kan utrota mänskligheten.
+  - Kortare [sammanfattning](https://herestosurvivingai.substack.com/p/i-thought-ai-extinction-was-sci-fi) om hur och varför AI kan utrota mänskligheten.
 
 ## 1+ timmar
 

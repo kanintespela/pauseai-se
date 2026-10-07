@@ -31,7 +31,9 @@ const sidor = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/sidor' }),
 	schema: z.object({
 		title: z.string(),
-		description: z.string().optional()
+		description: z.string().optional(),
+		knapp_text: z.string().optional(),
+		knapp_lank: z.string().optional()
 	})
 })
 
