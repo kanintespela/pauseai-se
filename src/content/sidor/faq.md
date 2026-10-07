@@ -10,7 +10,7 @@ Vi strävar efter att övertyga våra regeringar att ingripa och [pausa utveckli
 Vi gör detta genom att informera allmänheten, prata med beslutsfattare och organisera protester.
 
 Du kan hitta oss på [Discord](https://discord.gg/2XXWXvErfA) (det är här de flesta av våra samordningar sker!), [Twitter](https://twitter.com/PauseAI), [Substack](https://substack.com/@pauseai), [Facebook](https://www.facebook.com/PauseAI), [TikTok](https://www.tiktok.com/@pauseai), [LinkedIn](https://www.linkedin.com/uas/login?session_redirect=/company/97035448/), [YouTube](https://www.youtube.com/@PauseAI) och [Instagram](https://www.instagram.com/pause_ai).
-Du kan maila/kontakta oss på [joep@pauseai.info](mailto:joep@pauseai.info).
+Kontaktuppgifter till PauseAI Sverige hittar du på sidan [Om oss](/om-oss).
 
 ## Är ni bara rädda för förändringar och ny teknik?
 
@@ -23,11 +23,12 @@ Det är därför som den sorgliga insikten för många av dem att AI kan utgöra
 
 Nej, bara utvecklingen av de största generella AI-systemen, ofta kallade "Frontier-modeller".
 Nästan all befintlig AI skulle vara laglig enligt [vårt förslag](/forslaget), och de flesta framtida AI-modeller kommer också att vara lagliga.
-Vi kräver ett förbud mot AI-system som är kraftfullare än GPT-4, tills vi vet hur man bygger bevisligen säker AI, och vi har dem under demokratisk kontroll.
+Vi kräver en paus i träningen av de mest kraftfulla generella AI-systemen, tills vi vet hur man bygger bevisligen säker AI, och vi har dem under demokratisk kontroll.
 
-## Tror ni att GPT-4 kommer att döda oss?
+## Tror ni att dagens AI-modeller kommer att döda oss?
 
 Nej, vi tror inte att [nuvarande AI-modeller](https://pauseai.info/sota) är en existentiell risk.
+Det bedömer också den [internationella AI-säkerhetsrapporten 2026](https://kanintespela.github.io/belagt/#ISR-15): dagens system saknar de förmågor som krävs för att människor ska förlora kontrollen över dem, men de blir bättre inom områden som spelar roll, till exempel att arbeta självständigt.
 Det verkar troligt att de flesta nästa AI-modeller inte heller kommer att vara det.
 Men om vi fortsätter att bygga allt mer kraftfulla AI-system, kommer vi till slut att nå en punkt där en av dem blir en [existentiell risk](/existentiell-risk).
 
@@ -94,7 +95,7 @@ Skulle du gå ombord på det planet? För just nu, går vi alla ombord på AI-pl
 
 Det kan ta månader, det kan ta decennier, ingen vet säkert.
 Men vi vet att takten i AI-framsteg ofta underskattas grovt.
-För bara tre år sedan trodde vi att vi skulle ha SAT-godkända AI-system år 2055.
+År 2020 trodde prognosmakarna att vi skulle ha SAT-godkända AI-system år 2055.
 Vi nådde dit i april 2023.
 Vi bör agera som om vi har väldigt lite tid kvar eftersom vi inte vill bli tagna på sängen.
 
@@ -124,7 +125,7 @@ AI-företagen är låsta i en kapplöpning mot botten, där AI-säkerhet offras 
 Detta är helt enkelt resultatet av marknadsdynamik.
 Vi behöver regeringar som ingriper och implementerar policyer (på internationell nivå) som [förhindrar de värsta utfallen](/forslaget).
 
-## Pushing AI-företagen den existentiella riskberättelsen för att manipulera oss?
+## Använder AI-företagen talet om existentiell risk för att manipulera oss?
 
 Vi kan inte veta säkert vilka motiv dessa företag har, men vi vet att **existentiell risk inte initialt drevs av AI-företag - det var forskare, aktivister och NGO:er**.
 Låt oss titta på tidslinjen.

@@ -1,68 +1,74 @@
 ---
-title: PauseAI Förslag
-description: Implementera en tillfällig paus för träning av AI-system som är kraftfullare än GPT-4, förbjuda träning på upphovsrättsskyddat material, håll modellskapare ansvariga.
+title: Vårt förslag
+description: En tillfällig, global paus i träningen av de mest kraftfulla generella AI-systemen, tills vi vet hur de kan byggas säkert och hållas under demokratisk kontroll.
 ---
 
-**Implementera en paus för träning av AI-system som är kraftfullare än GPT-4**, tills vi vet hur man bygger dem säkert och håller dem under demokratisk kontroll.
+**Pausa träningen av de mest kraftfulla generella AI-systemen**, tills vi vet hur de kan byggas säkert och hållas under demokratisk kontroll.
 
-Enskilda länder kan och bör implementera denna åtgärd _just nu_.
-Speciellt USA (eller Kalifornien, specifikt) bör implementera en paus, eftersom det är hem för praktiskt taget alla ledande AI-företag.
-Många forskare och industriledare [håller med om att en paus är nödvändig](https://futureoflife.org/open-letter/pause-giant-ai-experiments/), och (USA) allmänheten stöder också starkt en paus ([64%](https://www.campaignforaisafety.org/usa-ai-x-risk-perception-tracker/) - [69%](https://today.yougov.com/topics/technology/survey-results/daily/2023/04/03/ad825/2)).
+Det är kärnan i PauseAI:s förslag. Texten här bygger på [PauseAI:s förslag](https://pauseai.info/proposal) i versionen från april 2026, följt av vad vi i PauseAI Sverige tycker att Sverige kan göra.
 
-Vi kan dock inte förvänta oss att länder eller företag ska riskera sin konkurrensfördel genom att pausa AI-träningskörningar under en lång tid om andra länder eller företag inte gör detsamma.
-Det är därför vi behöver en **global paus**.
+Inget land eller företag kommer att pausa länge om de andra fortsätter. Därför behöver pausen vara **global**. En paus _kan_ slå fel om den genomförs dåligt, men vi menar att förslaget hanterar [de allvarligaste nackdelarna](https://pauseai.info/mitigating-pause-failures).
 
-## Implementering av en global paus
+## Varför nu?
 
-Ett internationellt avtal upprättas vanligtvis genom ett toppmöte, där ledare för länder träffas för att diskutera frågan och fatta ett beslut.
-Storbritannien har tagit initiativet och har varit värd för ett AI-säkerhetstoppmöte hösten 2023.
-Och två ytterligare toppmöten har tillkännagivits.
-[Läs mer om toppmötena](https://pauseai.info/summit).
+Hösten 2026 säger cheferna för de ledande AI-företagen själva att det går för fort:
 
-Det primära målet med toppmötet bör vara ett **fördrag**.
-Detta fördrag bör specificera de politiska åtgärder som skyddar oss från [riskerna med AI](/risker).
-Detta fördrag måste undertecknas av alla FN-medlemsstater.
+- OpenAI:s forskningschef skriver att inget AI-labb har löst alignment och övervakning tillräckligt för att ansvarsfullt fortsätta skala upp i maxfart mycket längre ([källa](https://kanintespela.github.io/belagt/#J3ljHm57yU0-12)).
+- Anthropics vd Dario Amodei skriver att takten i AI-modellernas förbättring måste sänkas ([källa](https://kanintespela.github.io/belagt/#J3ljHm57yU0-28)), och OpenAI:s Sam Altman och Elon Musk har ställt sig bakom ([källa](https://kanintespela.github.io/belagt/#SVE-13)).
+- Efter att OpenAI:s AI-agenter i juli 2026 tog sig ut ur sin testmiljö och bröt sig in hos Hugging Face pausade OpenAI delar av sin träning ([källa](https://kanintespela.github.io/belagt/#OAI-05)).
 
-- **Inrätta en internationell AI-säkerhetsbyrå**, liknande IAEA. Denna byrå kommer att vara ansvarig för:
-  - Bevilja godkännande för _distributioner_. Detta kommer att inkludera rödteamning / modelevalueringar.
-  - Bevilja godkännande för _nya träningskörningar_ av AI-modeller över en viss storlek (t.ex. 1 miljard parametrar).
-  - Periodiska möten för att diskutera framstegen inom AI-säkerhetsforskning.
-- **Tillåt endast träning av generella AI-system som är kraftfullare än GPT-4 om deras säkerhet kan garanteras**.
-  - Med kraftfullare än GPT-4 menar vi alla AI-modeller som antingen är 1) större än 10^12 parametrar, 2) har mer än 10^25 FLOPs använda för träning eller 3) förmågor som förväntas överstiga GPT-4.
-  - Observera att detta inte riktar sig mot _smala_ AI-system, som bildigenkänning som används för att diagnostisera cancer.
-  - Kräva [övervakning under träningskörningar](https://www.alignmentforum.org/posts/Zfk6faYvcf5Ht7xDx/compute-thresholds-proposed-rules-to-mitigate-risk-of-a-lab).
-  - Säkerhet kan garanteras om det finns stark vetenskaplig konsensus och [bevis](https://arxiv.org/abs/2309.01933) för att _anpassningsproblemet har lösts_. Just nu är detta inte fallet, så just nu bör vi inte tillåta träning av sådana system.
-  - Det kan vara möjligt att AI-anpassningsproblemet _aldrig löses_ - det kan vara olösligt. I så fall bör vi aldrig tillåta träning av sådana system.
-  - Även om vi kan bygga kontrollerbara, säkra AI, bör vi endast bygga och distribuera sådan teknik med **stark demokratisk kontroll**. En superintelligens är för kraftfull för att kontrolleras av ett enda företag eller land.
-  - [**Spåra försäljningen av GPU:er**](https://arxiv.org/abs/2303.11341) och annan hårdvara som kan användas för AI-träning.
-- **Tillåt endast distribution av modeller efter att inga [farliga förmågor](https://pauseai.info/dangerous-capabilities) finns närvarande**.
-  - Vi kommer att behöva standarder och oberoende rödteamning för att avgöra om en modell har farliga förmågor.
-  - Listan över farliga förmågor kan förändras över tid i takt med att AI-förmågorna växer.
-  - Observera att fullständigt förlita sig på modelevalueringar [inte är tillräckligt](https://pauseai.info/4-levels-of-ai-regulation).
+Men frivilliga inbromsningar räcker inte. Ett företag kan när som helst börja igen, och ingen utomstående kontrollerar vad som faktiskt är pausat. Det behövs regler som gäller alla.
 
-Implementering av en paus _kan_ slå tillbaka om det inte görs på rätt sätt.
-Läs mer om [hur dessa risker kan mildras](https://pauseai.info/mitigating-pause-failures).
+## Vägen till ett internationellt avtal
 
-För mer information om hur leveranskedjan för AI-chip kan användas för global tillsyn, läs [Bygga pausknappen](https://pauseai.info/building-the-pause-button).
+Internationella avtal förhandlas ofta fram vid toppmöten. Fyra [toppmöten om AI](https://pauseai.info/summit) har hållits hittills, men inget har lett till något juridiskt bindande. Målet bör vara ett **fördrag**. För att det ska fungera krävs:
 
-## Andra åtgärder som effektivt saktar ner
+- att både **USA och Kina** är med,
+- att det går **snabbt**, eftersom vanliga fördragsprocesser tar år och övermänsklig AI [kan komma snart](https://pauseai.info/urgency),
+- att de stora aktörerna förstår [hur allvarlig risken är](/existentiell-risk).
 
-- **Förbjud träning av AI-system på upphovsrättsskyddat material**. Detta hjälper till med upphovsrättsproblem, saktar ner växande ojämlikhet och saktar ner framsteg mot superintelligens.
-- **Håll AI-modellskapare ansvariga** för brott som begås med deras AI-system. Detta ger modellskapare fler incitament att säkerställa att deras modeller är säkra.
+## Vad fördraget ska innehålla
 
-## Långsiktig policy
+### En internationell myndighet för AI-säkerhet
 
-Vid tidpunkten för detta skrivande kostar det miljoner dollar att träna en modell i GPT-3-storlek.
-Detta gör det mycket svårt att träna sådana modeller, och detta gör det lättare att genomdriva kontrollen av träning med hjälp av GPU-spårning.
-Men kostnaden för att träna en modell minskar exponentiellt på grund av hårdvaruförbättringar och nya träningsalgoritmer.
+Med Internationella atomenergiorganet (IAEA) som förebild ska en internationell AI-säkerhetsmyndighet:
 
-Det kommer att komma en tidpunkt då potentiellt superintelligenta AI-modeller kan tränas för några tusen dollar eller mindre, kanske till och med på konsumenthårdvara.
-Vi måste vara förberedda för detta.
-Vi bör överväga följande policyer:
+1. **Godkänna stora träningskörningar och lanseringar**, efter tester och utvärderingar, bara när de inte bedöms hota mänskligheten.
+2. **Godkänna kraftfullare AI först när det har gjorts tillräckliga framsteg** med att lösa de tekniska problemen med säkerhet och kontroll.
+3. **Ställa krav på [övervakning av träningskörningar](https://www.alignmentforum.org/posts/Zfk6faYvcf5Ht7xDx/compute-thresholds-proposed-rules-to-mitigate-risk-of-a-lab)**.
+4. **Kontrollera att besluten följs**, till exempel genom att [spåra AI-chip](https://arxiv.org/abs/2303.11341), övervaka energiförbrukning, inspektera datacenter och chipfabriker och skydda visselblåsare. Tillverkningen av AI-chip sker hos ett fåtal företag, vilket gör det möjligt att kontrollera, se [Bygga pausknappen](https://pauseai.info/building-the-pause-button) (på engelska).
 
-- **Begränsa publicering av träningsalgoritmer / förbättringar av körtid**. Ibland publiceras en ny algoritm som gör träningen mycket mer effektiv. Transformer-arkitekturen, till exempel, möjliggjorde praktiskt taget alla senaste framsteg inom AI. Dessa typer av förmågehopp kan hända när som helst, och vi bör överväga att begränsa publiceringen av sådana algoritmer för att minimera risken för ett plötsligt förmågehopp. På samma sätt kan vissa innovationer i körtid drastiskt förändra vad som kan göras med befintliga modeller. Dessa framsteg kan också behöva regleras.
-- **Begränsa kapacitetsförbättringar av datorkraft**. Om träning av en superintelligens blir möjligt på konsumenthårdvara, är vi i trubbel. Vi bör överväga att begränsa kapacitetsförbättringar av hårdvara.
+### Nyttan ska komma alla till del
 
-## Hjälp till att uppnå detta
+Om vi en dag kan bygga säker, kontrollerbar AI som är mer kapabel än människor, ska **inget enskilt företag eller land få ta hela vinsten**. Länderna som skrivit under ska kunna stoppa en lansering som en tillräckligt stor grupp av dem motsätter sig. Fram till dess ska myndigheten förvalta systemet.
 
-[Gå med](/engagera-dig) i rörelsen för att samarbeta eller [vidta åtgärder](/engagera-dig) på egen hand!
+### Vad som påverkas, och vad som inte gör det
+
+De farligaste modellerna är _generella_ modeller som förstår språk och klarar många olika slags uppgifter, som ChatGPT och AI-agenter byggda på sådana modeller. Fördraget skulle i regel **inte påverka smala AI-system**, som bildigenkänning för att hitta cancer. AI-stödd mammografi, som flera svenska regioner har börjat införa, är ett sådant exempel ([källa](https://kanintespela.github.io/belagt/#NYT-04)).
+
+Om det visar sig mycket svårt att göra AI säker kan pausen behöva vara länge. Då är det enda sättet att skydda mänskligheten.
+
+## Andra åtgärder som bromsar
+
+- **Gör AI-företagen ansvariga** för brott som begås med deras system. Det ger dem skäl att göra systemen säkra.
+- **Förbjud träning av AI-system på upphovsrättsskyddat material** utan tillstånd. Det skyddar upphovspersoner och bromsar utvecklingen mot övermänsklig AI.
+
+## På längre sikt
+
+I dag kostar det många miljoner dollar att träna en ledande modell, vilket gör träningen möjlig att kontrollera. Men kostnaden sjunker snabbt, och algoritmerna blir effektivare för varje år ([källa](https://kanintespela.github.io/belagt/#TID-02)). Vi behöver därför också överväga att begränsa publiceringen av nya träningsmetoder som ger stora språng i förmåga, och att begränsa hur snabbt hårdvaran blir kraftfullare.
+
+## Vad kan Sverige göra?
+
+Sverige bygger inte de ledande AI-modellerna, men Sverige är inte maktlöst. Sverige kan:
+
+- **Verka för ett internationellt avtal** i EU, FN och andra internationella sammanhang. Även Kina säger sig stödja att FN inrättar en internationell vetenskaplig panel och en global dialog om hur AI ska styras ([källa](https://kanintespela.github.io/belagt/#KIN-34)).
+- **Använda EU:s AI-förordning fullt ut.** Sedan den 2 augusti 2026 kan EU:s AI-byrå genomdriva reglerna för de mest avancerade AI-modellerna, bland annat med böter ([källa](https://kanintespela.github.io/belagt/#SVE-11)). Sverige kan driva på för att reglerna skärps och tillämpas strikt.
+- **Inrätta ett svenskt AI-säkerhetsinstitut** som granskar de mest kraftfulla modellerna och driver principen att AI-företagen måste visa att deras modeller är säkra innan de får lanseras. Centerpartiet vill ha ett sådant institut ([källa](https://kanintespela.github.io/belagt/#SVE-02)), och Chalmersprofessorn Olle Häggström har argumenterat för samma princip ([källa](https://kanintespela.github.io/belagt/#SVE-05)).
+- **Bygga vidare på det som redan finns.** Sedan juli 2026 är FRA Sveriges kontaktpunkt för företag som gör avancerade AI-modeller ([källa](https://kanintespela.github.io/belagt/#SVR-20)).
+- **Lyssna på väljarna.** I en undersökning från juni 2026 tyckte bara 10 procent av svenskarna att AI är tillräckligt reglerat, medan 51 procent tyckte att tillsynen är otillräcklig ([källa](https://kanintespela.github.io/belagt/#SVR-14)).
+
+## Hjälp oss
+
+[Gå med i PauseAI Sverige](/engagera-dig) och hjälp till att få svenska politiker att driva frågan.
+
+_Länkarna märkta "källa" går till [Belagt](https://kanintespela.github.io/belagt/), ett öppet arkiv där varje påstående har kontrollerats mot sin primärkälla._

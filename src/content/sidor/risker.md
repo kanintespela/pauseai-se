@@ -15,7 +15,7 @@ Mycket av vårt samhälle är baserat på tillit. Vi litar på att pengarna på 
 AI-system är exceptionellt bra på att skapa falska medier.
 De kan skapa falska videor, falska ljud, falska texter och falska bilder.
 Dessa kapaciteter förbättras snabbt.
-För bara två år sedan skrattade vi åt de hemskt orealistiska Dall-E-bilderna, men nu har vi [deepfake-bilder som vinner fototävlingar](https://www.theguardian.com/technology/2023/apr/17/photographer-admits-prize-winning-image-was-ai-generated).
+År 2022 skrattade vi åt de hemskt orealistiska Dall-E-bilderna, men redan året därpå fanns det [deepfake-bilder som vinner fototävlingar](https://www.theguardian.com/technology/2023/apr/17/photographer-admits-prize-winning-image-was-ai-generated).
 Ett 10-sekunders ljudklipp eller en enda bild kan vara nog för att skapa en övertygande deepfake.
 
 Att skapa falska medier är inte nytt, men AI gör det mycket billigare och mycket mer realistiskt.
@@ -79,12 +79,10 @@ Beroendet av produkter och tjänster som lär sig av personliga data lämnar oss
 Och det spelar på en ond cirkel med koncentrationen av ekonomisk makt och intelligens hos de företag som skapar dem.
 
 Om denna ekonomiska och teknologiska ojämlikhet härstammar från en handfull offentliga och privata enheter som producerar flera enkeländamåls-AI eller några multifunktions-AI, kan det leda till en kort maktkoncentration som sannolikt resulterar i en katastrof för alla.
-Maktsamlingen av den berättelsen har och kommer att fortsätta att incitamentera fler aktörer
+Löftet om sådan makt lockar fler aktörer att gå med i kapplöpningen mot botten och påskynda utvecklingen av större AI-system.
+Det ger fler felkällor och får riskerna att verka mindre, eftersom det stöder idén att de kan hanteras på egen hand, av ett företag eller en regering.
 
-att gå med i kapplöpningen till botten och påskynda utvecklingen av större AI-system.
-Detta introducerar fler felpunkter och förringar de tillhörande riskerna genom att stödja idén att de kan hanteras unilateralt, av ett företag eller en regering.
-
-Ett sådant scenario skulle inte bara avmaktiga varje annan person och nation i världen, utan också katalysera globala makter att gå i konflikt.
+Ett sådant scenario skulle inte bara göra varje annan person och nation i världen maktlös, utan också katalysera globala makter att gå i konflikt.
 Så det är avgörande att agera så snart som möjligt, innan tävlingsdynamiken sträcker sig längre, innan de redan mäktigaste regeringarna och företagen konsoliderar sina positioner och innan ett krig utlöses som svar.
 Vi behöver internationellt samarbete eftersom det enda vinnande draget i detta konstiga spel är att inte spela, utan att pausa.
 
@@ -93,7 +91,6 @@ Auktoritära och totalitära regeringar kan också använda AI-teknologier för 
 De kan kontrollera kommunikationskanaler eller upprätthålla sociala kredit- och massövervakningssystem som säkerställer att de behåller sin makt samtidigt som de kränker mänskliga rättigheter.
 
 ### Autonoma vapen
-Autonoma vapen
 Företag säljer redan AI-drivna vapen till regeringar.
 Lanius bygger flygande självmordsdrönare som autonomt identifierar fiender.
 Palantirs AIP-system använder stora språkmodeller för att analysera slagfältsdata och komma med optimala strategier.
@@ -106,20 +103,20 @@ Just nu har vi fortfarande människor i loopen för dessa vapen.
 Men när kapaciteten hos dessa AI-system förbättras kommer det att bli mer och mer tryck att ge maskinerna makten att fatta beslut.
 När vi delegerar kontrollen över vapen till AI, kan fel och buggar få fruktansvärda konsekvenser.
 Den hastighet med vilken AI kan bearbeta information och fatta beslut kan orsaka att konflikter eskalerar på några minuter.
-En nyligen publicerad artikel konstaterar att "modeller tenderar att utveckla kapprustningsdynamik, vilket leder till större konflikter och i sällsynta fall till och med till användning av kärnvapen".
+En [studie från 2024](https://arxiv.org/abs/2401.03408) konstaterar att "modeller tenderar att utveckla kapprustningsdynamik, vilket leder till större konflikter och i sällsynta fall till och med till användning av kärnvapen".
 
-Läs mer på stopkillerrobots.org
+Läs mer på [stopkillerrobots.org](https://www.stopkillerrobots.org) (på engelska).
 
 ## Nära framtida faror
 ### Biologiska vapen
-AI kan göra kunskap mer tillgänglig, vilket också inkluderar kunskap om hur man skapar biologiska vapen. Denna artikel visar hur GPT-4 kan hjälpa icke-vetenskapliga studenter att skapa en pandemi-patogen:
+AI kan göra kunskap mer tillgänglig, vilket också inkluderar kunskap om hur man skapar biologiska vapen. En [studie från 2023](https://arxiv.org/abs/2306.03809) visade hur chattbottar kunde hjälpa studenter utan naturvetenskaplig bakgrund:
 
-På en timme föreslog chatbotarna fyra potentiella pandemi-patogener, förklarade hur de kan genereras från syntetiskt DNA med hjälp av omvänd genetik, försåg namnen på DNA-syntesföretag som troligen inte screenar beställningar, identifierade detaljerade protokoll och hur man felsöker dem, och rekommenderade att någon som saknar färdigheterna att utföra omvänd genetik engagerar en kärnanläggning eller ett kontraktsforskningsföretag.
+> På en timme föreslog chatbotarna fyra potentiella pandemi-patogener, förklarade hur de kan genereras från syntetiskt DNA med hjälp av omvänd genetik, försåg namnen på DNA-syntesföretag som troligen inte screenar beställningar, identifierade detaljerade protokoll och hur man felsöker dem, och rekommenderade att någon som saknar färdigheterna att utföra omvänd genetik engagerar en kärnanläggning eller ett kontraktsforskningsföretag.
 
 Denna typ av kunskap har aldrig varit så tillgänglig, och vi har inte säkerhetsåtgärderna på plats för att hantera de potentiella konsekvenserna.
 
 Dessutom kan vissa AI-modeller användas för att designa helt nya farliga patogener.
-En modell kallad MegaSyn designade 40 000 nya kemiska vapen/toxiska molekyler på en timme.
+En modell kallad MegaSyn [föreslog 40 000 giftiga molekyler, bland dem kända kemiska stridsmedel, på mindre än sex timmar](https://www.nature.com/articles/s42256-022-00465-9).
 Den revolutionära AlphaFold-modellen kan förutsäga strukturen av proteiner, vilket också är en dual-use technology.
 Att förutsäga proteinstrukturer kan användas för att "upptäcka sjukdomsframkallande mutationer med hjälp av en individs genomsekvens".
 Forskare skapar nu till och med helt autonoma kemiska laboratorier, där AI-system själva kan syntetisera nya kemikalier.
