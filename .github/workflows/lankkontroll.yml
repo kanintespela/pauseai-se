@@ -1,0 +1,43 @@
+name: Länkkontroll
+
+# En gång i månaden: kontrollerar att alla externa länkar på sajten fungerar,
+# och öppnar ett ärende med de länkar som har slutat fungera.
+on:
+  schedule:
+    - cron: '53 6 1 * *' # den 1:a varje månad
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lankar:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Kontrollera länkar
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # 403, 429 och 999 betyder oftast att sajten stoppar robotar, inte att länken är död.
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --accept 200..=299,403,429,999
+            --max-retries 2
+            'src/**/*.md' 'src/**/*.astro' README.md
+          output: lankar.md
+          fail: false
+      - name: Öppna eller uppdatera ärendet
+        if: steps.lychee.outputs.exit_code != 0
+        run: |
+          gh label create lankar --color D93F0B --description "Länkar som har slutat fungera" --force
+          nummer=$(gh issue list --state open --label lankar --json number --jq '.[0].number')
+          if [ -n "$nummer" ]; then
+            gh issue edit "$nummer" --body-file lankar.md
+          else
+            gh issue create --title "Länkar som har slutat fungera" --label lankar --body-file lankar.md
+          fi

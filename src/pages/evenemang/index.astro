@@ -2,13 +2,12 @@
 import { getCollection } from 'astro:content'
 import Base from '../../layouts/Base.astro'
 import EventList from '../../components/EventList.astro'
-import { url } from '../../lib'
+import { isUpcoming, url } from '../../lib'
 
 const all = await getCollection('evenemang')
-// Sidan byggs om vid varje ändring, så "kommande" avser datumet då den senast byggdes.
-const now = Date.now()
-const upcoming = all.filter((e) => e.data.date.valueOf() >= now).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
-const past = all.filter((e) => e.data.date.valueOf() < now).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+// Sidan byggs om varje natt och vid varje ändring, så passerade evenemang flyttas till Tidigare.
+const upcoming = all.filter((e) => isUpcoming(e.data.date)).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+const past = all.filter((e) => !isUpcoming(e.data.date)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 ---
 
 <Base title="Evenemang" description="Kommande evenemang med PauseAI Sverige.">

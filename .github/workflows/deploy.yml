@@ -1,10 +1,13 @@
 name: Publicera på GitHub Pages
 
 # Bygger och publicerar sajten vid varje ändring på main, även ändringar
-# gjorda i Pages CMS.
+# gjorda i Pages CMS, och dessutom varje natt så att evenemang som har
+# passerat flyttas från Kommande till Tidigare.
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '17 1 * * *' # 01:17 UTC, alltså 02:17 eller 03:17 svensk tid
   workflow_dispatch:
 
 permissions:
