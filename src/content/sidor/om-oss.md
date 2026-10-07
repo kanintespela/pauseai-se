@@ -17,8 +17,6 @@ Vi vill att Sverige verkar för ett internationellt avtal som pausar utvecklinge
 
 Vill du nå oss, till exempel som journalist? Fyll i [formuläret](/engagera-dig) och skriv vad det gäller, så hör vi av oss.
 
-<!-- Att göra: lägg till e-postadress, presskontakt och svenska sociala medier när webbgruppen har bestämt dem. -->
-
 ## Gå med
 
 Vill du hjälpa till? [Anmäl dig här](/engagera-dig) så hör vi av oss.

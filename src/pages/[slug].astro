@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content'
 import Base from '../layouts/Base.astro'
+import { url } from '../lib'
 
 export async function getStaticPaths() {
 	const sidor = await getCollection('sidor')
@@ -10,11 +11,15 @@ export async function getStaticPaths() {
 
 const { sida } = Astro.props
 const { Content } = await render(sida)
+const { knapp_text, knapp_lank } = sida.data
+// Interna länkar (/donera) får base framför, externa lämnas som de är.
+const knappHref = knapp_lank?.startsWith('/') ? url(knapp_lank) : knapp_lank
 ---
 
 <Base title={sida.data.title} description={sida.data.description}>
 	<article class="container prose">
 		<h1>{sida.data.title}</h1>
+		{knapp_text && knappHref && <p><a class="button" href={knappHref}>{knapp_text}</a></p>}
 		<Content />
 	</article>
 </Base>
