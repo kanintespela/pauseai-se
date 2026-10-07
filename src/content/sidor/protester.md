@@ -27,7 +27,7 @@ description: När och var vi kommer att protestera.
 
 - [1 november, Bletchley Park, Storbritannien](https://pauseai.info/2023-november-uk)
 - [21 oktober, Internationell protest](https://pauseai.info/2023-oct)
-- [29 september, San Francisco](https://metaprotest.org/) (inte officiellt PauseAI)
+- [29 september, San Francisco](https://web.archive.org/web/20241011152258/http://metaprotest.org/) (inte officiellt PauseAI)
 - [11 augusti, Nederländerna](https://pauseai.info/2023-august-nl)
 - [18 juli, London](https://pauseai.info/2023-july-london-18th)
 - [13 juli, London](https://pauseai.info/2023-july-london-13th)
