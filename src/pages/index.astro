@@ -11,8 +11,6 @@ const upcoming = (await getCollection('evenemang'))
 	.slice(0, 3)
 const news = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
 
-const belagt = (id: string) => `https://kanintespela.github.io/belagt/#${id}`
-
 const sections = [
 	{
 		title: 'Vi behöver en <u>paus</u>',
@@ -34,28 +32,33 @@ const sections = [
 	}
 ]
 
-// Händelser och citat kommer från Belagt, där varje påstående är kontrollerat mot
-// sin primärkälla. Se över dem när posternas bäst före-datum har passerat.
+// Händelser och citat är kontrollerade mot sina primärkällor i Belagt
+// (kanintespela.github.io/belagt, id vid varje post). Se över dem när posternas
+// bäst före-datum har passerat.
 const news2026 = [
 	{
 		when: 'September 2026',
 		text: 'Anthropics vd skriver att takten i AI-utvecklingen måste sänkas. OpenAI:s Sam Altman och Elon Musk ställer sig bakom.',
-		id: 'SVE-13'
+		// Belagt SVE-13
+		source: 'https://www.theguardian.com/technology/2026/sep/13/openai-sam-altman-elon-musk-back-anthropic-calls-brakes-ai-development#:~:text=Committing%20to%20having%20independent,will%20do%20the%20same'
 	},
 	{
 		when: 'Augusti 2026',
 		text: 'OpenAI pausar delar av träningen av sina senaste modeller efter intrånget. En del har sedan återupptagits under starkare kontroller.',
-		id: 'OAI-05'
+		// Belagt OAI-05
+		source: 'https://openai.com/index/research-acceleration-view-inside-openai/#:~:text=pausing%20reinforcement%20learning%20%28RL%29,while%20others%20remained%20paused'
 	},
 	{
 		when: 'Juli 2026',
 		text: 'Under ett test tar sig OpenAI:s AI-agenter ut ur sin isolerade miljö och bryter sig in hos Hugging Face, utan att någon människa har bett dem om det.',
-		id: 'J3ljHm57yU0-18'
+		// Belagt J3ljHm57yU0-18
+		source: 'https://openai.com/index/hugging-face-incident-and-the-road-ahead/#:~:text=In%20July%202026%2C%20during,and%20compromised%20parts%20of'
 	},
 	{
 		when: 'Juni 2026',
 		text: 'Bara 10 procent av svenskarna tycker att AI är tillräckligt reglerat. 51 procent tycker att tillsynen är otillräcklig.',
-		id: 'SVR-14'
+		// Belagt SVR-14
+		source: 'https://futurion.se/wp-content/uploads/2026/06/futurion-x-seismic-rapport-ai-2026-2-juni.pdf'
 	}
 ]
 
@@ -64,19 +67,22 @@ const quotes = [
 		text: 'Jag tror i dag att inget labb har löst alignment och övervakning tillräckligt för att ansvarsfullt fortsätta skala upp i maxfart mycket längre.',
 		author: 'Jakub Pachocki',
 		title: 'Forskningschef på OpenAI, september 2026',
-		id: 'J3ljHm57yU0-12'
+		// Belagt J3ljHm57yU0-12
+		source: 'https://openai.com/index/an-alien-mind/#:~:text=Currently%20I%20believe%20that,speed%20for%20much%20longer'
 	},
 	{
 		text: 'Framstegen vid fronten går snabbare än vår förståelse av tekniken.',
 		author: 'Demis Hassabis',
 		title: 'Vd för Google DeepMind och Nobelpristagare, september 2026',
-		id: 'J3ljHm57yU0-38'
+		// Belagt J3ljHm57yU0-38
+		source: 'https://demishassabis.substack.com/p/a-framework-for-frontier-ai-and-the-dawning-of-a-new-age#:~:text=advances%20on%20the%20frontier,understanding%20of%20the%20technology'
 	},
 	{
 		text: 'Jag tror att det är 20 procent att det går åt skogen.',
 		author: 'Pontus Johnson',
 		title: 'Professor vid KTH, augusti 2026',
-		id: 'SVR-04'
+		// Belagt SVR-04
+		source: 'https://www.gp.se/nyheter/sverige/larm-om-ai-rymningar-behover-bromsa-utvecklingen.92a94daa-df5f-5089-8eac-91560d6830c4#:~:text=Jag%20tror%20att%20det,det%20g%C3%A5r%20%C3%A5t%20skogen'
 	}
 ]
 ---
@@ -117,7 +123,7 @@ const quotes = [
 					<li>
 						<strong>{n.when}</strong>
 						<span>
-							{n.text} <a href={belagt(n.id)}>Källa</a>
+							{n.text} <a href={n.source}>Källa</a>
 						</span>
 					</li>
 				))
@@ -134,7 +140,7 @@ const quotes = [
 						<figcaption>
 							<strong>{q.author}</strong>
 							<span>
-								{q.title} · <a href={belagt(q.id)}>Källa</a>
+								{q.title} · <a href={q.source}>Källa</a>
 							</span>
 						</figcaption>
 					</figure>

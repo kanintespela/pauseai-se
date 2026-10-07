@@ -13,9 +13,9 @@ Inget land eller företag kommer att pausa länge om de andra fortsätter. Därf
 
 Hösten 2026 säger cheferna för de ledande AI-företagen själva att det går för fort:
 
-- OpenAI:s forskningschef skriver att inget AI-labb har löst alignment och övervakning tillräckligt för att ansvarsfullt fortsätta skala upp i maxfart mycket längre ([källa](https://kanintespela.github.io/belagt/#J3ljHm57yU0-12)).
-- Anthropics vd Dario Amodei skriver att takten i AI-modellernas förbättring måste sänkas ([källa](https://kanintespela.github.io/belagt/#J3ljHm57yU0-28)), och OpenAI:s Sam Altman och Elon Musk har ställt sig bakom ([källa](https://kanintespela.github.io/belagt/#SVE-13)).
-- Efter att OpenAI:s AI-agenter i juli 2026 tog sig ut ur sin testmiljö och bröt sig in hos Hugging Face pausade OpenAI delar av sin träning ([källa](https://kanintespela.github.io/belagt/#OAI-05)).
+- OpenAI:s forskningschef skriver att inget AI-labb har löst alignment och övervakning tillräckligt för att ansvarsfullt fortsätta skala upp i maxfart mycket längre ([OpenAI](https://openai.com/index/an-alien-mind/#:~:text=Currently%20I%20believe%20that,speed%20for%20much%20longer)).
+- Anthropics vd Dario Amodei skriver att takten i AI-modellernas förbättring måste sänkas ([Amodei](https://darioamodei.com/post/we-must-pace-the-frontier#:~:text=We%20must%20slow%20the,capabilities%20of%20AI%20models)), och OpenAI:s Sam Altman och Elon Musk har ställt sig bakom ([The Guardian](https://www.theguardian.com/technology/2026/sep/13/openai-sam-altman-elon-musk-back-anthropic-calls-brakes-ai-development#:~:text=Committing%20to%20having%20independent,will%20do%20the%20same)).
+- Efter att OpenAI:s AI-agenter i juli 2026 tog sig ut ur sin testmiljö och bröt sig in hos Hugging Face pausade OpenAI delar av sin träning ([OpenAI](https://openai.com/index/research-acceleration-view-inside-openai/#:~:text=pausing%20reinforcement%20learning%20%28RL%29,while%20others%20remained%20paused)).
 
 Men frivilliga inbromsningar räcker inte. Ett företag kan när som helst börja igen, och ingen utomstående kontrollerar vad som faktiskt är pausat. Det behövs regler som gäller alla.
 
@@ -44,7 +44,7 @@ Om vi en dag kan bygga säker, kontrollerbar AI som är mer kapabel än människ
 
 ### Vad som påverkas, och vad som inte gör det
 
-De farligaste modellerna är _generella_ modeller som förstår språk och klarar många olika slags uppgifter, som ChatGPT och AI-agenter byggda på sådana modeller. Fördraget skulle i regel **inte påverka smala AI-system**, som bildigenkänning för att hitta cancer. AI-stödd mammografi, som flera svenska regioner har börjat införa, är ett sådant exempel ([källa](https://kanintespela.github.io/belagt/#NYT-04)).
+De farligaste modellerna är _generella_ modeller som förstår språk och klarar många olika slags uppgifter, som ChatGPT och AI-agenter byggda på sådana modeller. Fördraget skulle i regel **inte påverka smala AI-system**, som bildigenkänning för att hitta cancer. AI-stödd mammografi, som flera svenska regioner har börjat införa, är ett sådant exempel ([Lunds universitet](https://www.lunduniversity.lu.se/article/ai-support-breast-cancer-screening-fewer-missed-cancer-cases#:~:text=Many%20regions%20in%20Sweden,into%20existing%20IT%20systems)).
 
 Om det visar sig mycket svårt att göra AI säker kan pausen behöva vara länge. Då är det enda sättet att skydda mänskligheten.
 
@@ -55,20 +55,20 @@ Om det visar sig mycket svårt att göra AI säker kan pausen behöva vara läng
 
 ## På längre sikt
 
-I dag kostar det många miljoner dollar att träna en ledande modell, vilket gör träningen möjlig att kontrollera. Men kostnaden sjunker snabbt, och algoritmerna blir effektivare för varje år ([källa](https://kanintespela.github.io/belagt/#TID-02)). Vi behöver därför också överväga att begränsa publiceringen av nya träningsmetoder som ger stora språng i förmåga, och att begränsa hur snabbt hårdvaran blir kraftfullare.
+I dag kostar det många miljoner dollar att träna en ledande modell, vilket gör träningen möjlig att kontrollera. Men kostnaden sjunker snabbt, och algoritmerna blir effektivare för varje år ([Epoch AI](https://epoch.ai/trends#:~:text=each%20year%2C%20the%20same,with%203%C3%97%20less%20compute)). Vi behöver därför också överväga att begränsa publiceringen av nya träningsmetoder som ger stora språng i förmåga, och att begränsa hur snabbt hårdvaran blir kraftfullare.
 
 ## Vad kan Sverige göra?
 
 Sverige bygger inte de ledande AI-modellerna, men Sverige är inte maktlöst. Sverige kan:
 
-- **Verka för ett internationellt avtal** i EU, FN och andra internationella sammanhang. Även Kina säger sig stödja att FN inrättar en internationell vetenskaplig panel och en global dialog om hur AI ska styras ([källa](https://kanintespela.github.io/belagt/#KIN-34)).
-- **Använda EU:s AI-förordning fullt ut.** Sedan den 2 augusti 2026 kan EU:s AI-byrå genomdriva reglerna för de mest avancerade AI-modellerna, bland annat med böter ([källa](https://kanintespela.github.io/belagt/#SVE-11)). Sverige kan driva på för att reglerna skärps och tillämpas strikt.
-- **Inrätta ett svenskt AI-säkerhetsinstitut** som granskar de mest kraftfulla modellerna och driver principen att AI-företagen måste visa att deras modeller är säkra innan de får lanseras. Centerpartiet vill ha ett sådant institut ([källa](https://kanintespela.github.io/belagt/#SVE-02)), och Chalmersprofessorn Olle Häggström har argumenterat för samma princip ([källa](https://kanintespela.github.io/belagt/#SVE-05)).
-- **Bygga vidare på det som redan finns.** Sedan juli 2026 är FRA Sveriges kontaktpunkt för företag som gör avancerade AI-modeller ([källa](https://kanintespela.github.io/belagt/#SVR-20)).
-- **Lyssna på väljarna.** I en undersökning från juni 2026 tyckte bara 10 procent av svenskarna att AI är tillräckligt reglerat, medan 51 procent tyckte att tillsynen är otillräcklig ([källa](https://kanintespela.github.io/belagt/#SVR-14)).
+- **Verka för ett internationellt avtal** i EU, FN och andra internationella sammanhang. Även Kina säger sig stödja att FN inrättar en internationell vetenskaplig panel och en global dialog om hur AI ska styras ([Kinas utrikesministerium, på kinesiska](https://www.mfa.gov.cn/zyxw/202507/t20250726_11677803.shtml#:~:text=%E6%94%AF%E6%8C%81%E5%9C%A8%E8%81%94%E5%90%88%E5%9B%BD%E6%A1%86%E6%9E%B6%E4%B8%8B%E5%BB%BA%E7%AB%8B%E5%9B%BD,%E7%90%86%E5%AF%B9%E8%AF%9D%E4%B8%A4%E9%A1%B9%E6%9C%BA%E5%88%B6%E5%B9%B6%E5%B0%BD%E6%97%A9%E8%BF%90%E8%A1%8C)).
+- **Använda EU:s AI-förordning fullt ut.** Sedan den 2 augusti 2026 kan EU:s AI-byrå genomdriva reglerna för de mest avancerade AI-modellerna, bland annat med böter ([EU-kommissionen](https://ai-act-service-desk.ec.europa.eu/en/faq#:~:text=From%20that%20date%2C%20the,models%20will%20be%20enforceable)). Sverige kan driva på för att reglerna skärps och tillämpas strikt.
+- **Inrätta ett svenskt AI-säkerhetsinstitut** som granskar de mest kraftfulla modellerna och driver principen att AI-företagen måste visa att deras modeller är säkra innan de får lanseras. Centerpartiet vill ha ett sådant institut ([Centerpartiet](https://www.centerpartiet.se/centerpartiets-politik/centerpartiets-politik-a-o/digitalisering/artificiell-intelligens-ai#:~:text=Institutet%20ska%20kunna%20bidra,samarbete%20om%20ansvarsfull%20AI%2Dutveckling)), och Chalmersprofessorn Olle Häggström har argumenterat för samma princip ([Ny Teknik](https://www.nyteknik.se/debatt/ja-sverige-boer-inraetta-ett-institut-foer-ai-saekerhet/4485946#:~:text=m%C3%A5ste%20bevisa%20att%20dessa,riskerar%20orsaka%20global%20katastrof)).
+- **Bygga vidare på det som redan finns.** Sedan juli 2026 är FRA Sveriges kontaktpunkt för företag som gör avancerade AI-modeller ([regeringen](https://www.regeringen.se/regeringens-politik/sveriges-ai-strategi/#:~:text=vara%20nationell%20kontaktpunkt%20f%C3%B6r,f%C3%B6r%20artificiell%20intelligens%20%28AI)).
+- **Lyssna på väljarna.** I en undersökning som publicerades i juni 2026 tyckte bara 10 procent av svenskarna att AI är tillräckligt reglerat, medan 51 procent tyckte att tillsynen är otillräcklig ([Futurion, pdf](https://futurion.se/wp-content/uploads/2026/06/futurion-x-seismic-rapport-ai-2026-2-juni.pdf)).
 
 ## Hjälp oss
 
 [Gå med i PauseAI Sverige](/engagera-dig) och hjälp till att få svenska politiker att driva frågan.
 
-_Länkarna märkta "källa" går till [Belagt](https://kanintespela.github.io/belagt/), ett öppet arkiv där varje påstående har kontrollerats mot sin primärkälla._
+_Länkarna inom parentes går direkt till originalkällorna._

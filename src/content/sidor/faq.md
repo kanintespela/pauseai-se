@@ -28,7 +28,7 @@ Vi kräver en paus i träningen av de mest kraftfulla generella AI-systemen, til
 ## Tror ni att dagens AI-modeller kommer att döda oss?
 
 Nej, vi tror inte att [nuvarande AI-modeller](https://pauseai.info/sota) är en existentiell risk.
-Det bedömer också den [internationella AI-säkerhetsrapporten 2026](https://kanintespela.github.io/belagt/#ISR-15): dagens system saknar de förmågor som krävs för att människor ska förlora kontrollen över dem, men de blir bättre inom områden som spelar roll, till exempel att arbeta självständigt.
+Det bedömer också den [internationella AI-säkerhetsrapporten 2026](https://arxiv.org/abs/2602.21012#:~:text=Current%20systems%20lack%20the,such%20as%20autonomous%20operation): dagens system saknar de förmågor som krävs för att människor ska förlora kontrollen över dem, men de blir bättre inom områden som spelar roll, till exempel att arbeta självständigt.
 Det verkar troligt att de flesta nästa AI-modeller inte heller kommer att vara det.
 Men om vi fortsätter att bygga allt mer kraftfulla AI-system, kommer vi till slut att nå en punkt där en av dem blir en [existentiell risk](/existentiell-risk).
 
