@@ -1,0 +1,35 @@
+name: Kontrollera källor
+
+# En gång i veckan: kontrollerar om påståenden från Belagt som sajten använder
+# har passerat sitt bäst före-datum eller ersatts, och öppnar i så fall ett ärende.
+on:
+  schedule:
+    - cron: '41 6 * * 1' # måndagar
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  kontrollera:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: node scripts/kontrollera-kallor.mjs
+      - name: Öppna eller uppdatera ärendet
+        if: hashFiles('kallor.md') != ''
+        run: |
+          gh label create kallor --color 0E8A16 --description "Källor att se över" --force
+          titel="Källor att se över"
+          nummer=$(gh issue list --state open --label kallor --json number --jq '.[0].number')
+          if [ -n "$nummer" ]; then
+            gh issue edit "$nummer" --body-file kallor.md
+          else
+            gh issue create --title "$titel" --label kallor --body-file kallor.md
+          fi
