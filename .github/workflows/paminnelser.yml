@@ -1,0 +1,36 @@
+name: Påminnelse inför evenemang
+
+# Varje morgon: öppnar ett ärende för varje evenemang som äger rum om tre dagar,
+# med en lista över var det ska delas. Alla som bevakar repot får ett mejl.
+on:
+  schedule:
+    - cron: '23 5 * * *' # 05:23 UTC, alltså 06:23 eller 07:23 svensk tid
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  paminn:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: node scripts/paminnelser.mjs
+      - name: Öppna ett ärende per evenemang
+        run: |
+          gh label create paminnelse --color FBCA04 --description "Påminnelse inför evenemang" --force
+          shopt -s nullglob
+          for fil in paminnelser/*.md; do
+            titel="Dela evenemanget: $(head -n 1 "$fil")"
+            # Hoppa över om ärendet redan finns, till exempel om arbetsflödet körs två gånger.
+            if [ -z "$(gh issue list --state all --label paminnelse --search "\"$titel\" in:title" --json number --jq '.[0].number')" ]; then
+              tail -n +2 "$fil" > text.md
+              gh issue create --title "$titel" --label paminnelse --body-file text.md
+            fi
+          done

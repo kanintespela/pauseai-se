@@ -20,6 +20,23 @@ Du behöver inte kunna koda.
 
 Bilder laddas upp direkt i formuläret och sparas i `public/bilder/`.
 
+## Automatik
+
+Det här sköter sig självt med GitHub Actions (`.github/workflows/`):
+
+| Vad | När | Vad du märker |
+| --- | --- | --- |
+| Publicera sajten | Vid varje ändring | Ändringen syns efter ett par minuter. |
+| Föreslå ett evenemang | När någon fyller i [formuläret](https://github.com/kanintespela/pauseai-se/issues/new?template=evenemang.yml) | En PR med evenemanget skapas. Slå ihop den för att publicera. |
+| Påminnelse inför evenemang | Varje morgon | Ett ärende med en lista över var evenemanget ska delas, tre dagar innan. |
+| Kontrollera källor | Måndagar | Ett ärende om ett påstående från Belagt som sajten använder har blivit inaktuellt. |
+| Länkkontroll | Den 1:a varje månad | Ett ärende om någon länk har slutat fungera. |
+| Veckosammanfattning | Måndagar | Ett ärende med veckans ändringar och kommande evenemang. |
+| Kontrollera ändringen | Vid varje PR | En grön eller röd bock som visar om sajten går att bygga. |
+| Uppdateringar (Dependabot) | En gång i månaden | En PR när Astro eller andra delar har nya versioner. |
+
+Ärendena kommer som mejl till alla som bevakar repot: klicka på **Watch** → **All Activity** uppe till höger.
+
 ## Ge feedback
 
 Skriv i WhatsApp-gruppen, eller [skapa ett ärende (issue)](https://github.com/kanintespela/pauseai-se/issues/new) här på GitHub.

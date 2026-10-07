@@ -1,0 +1,62 @@
+name: Evenemang från formulär
+
+# När någon fyller i formuläret "Föreslå ett evenemang" (ett ärende med
+# etiketten nytt-evenemang) skapas en PR med evenemanget. Det publiceras
+# först när någon i webbgruppen slår ihop PR:en.
+#
+# Kräver att "Allow GitHub Actions to create and approve pull requests" är
+# påslaget under Settings → Actions → General.
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: evenemang-${{ github.event.issue.number }}
+
+jobs:
+  skapa:
+    if: contains(github.event.issue.labels.*.name, 'nytt-evenemang') && github.event.issue.state == 'open'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      NUMMER: ${{ github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Gör om ärendet till en evenemangsfil
+        id: fil
+        env:
+          # Ärendets text skickas som miljövariabel, aldrig rakt in i ett kommando.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/evenemang-fran-arende.mjs
+
+      - name: Skapa eller uppdatera PR
+        env:
+          FIL: ${{ steps.fil.outputs.file }}
+          TITEL: ${{ github.event.issue.title }}
+        run: |
+          branch="evenemang/arende-$NUMMER"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add "$FIL"
+          git commit -m "Nytt evenemang från ärende #$NUMMER"
+          git push --force origin "$branch"
+          if [ -z "$(gh pr list --head "$branch" --json number --jq '.[0].number')" ]; then
+            url=$(gh pr create --head "$branch" --title "$TITEL" \
+              --body "Skapad från formuläret i #$NUMMER. Kontrollera uppgifterna och slå ihop PR:en för att publicera evenemanget. Closes #$NUMMER")
+            gh issue comment "$NUMMER" --body "Tack! Förslaget ligger i $url och publiceras när någon i webbgruppen har godkänt det."
+          fi
+
+      - name: Berätta vad som blev fel
+        if: failure() && hashFiles('fel.md') != ''
+        run: gh issue comment "$NUMMER" --body-file fel.md

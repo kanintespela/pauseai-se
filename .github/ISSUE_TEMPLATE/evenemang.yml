@@ -1,0 +1,56 @@
+name: Föreslå ett evenemang
+description: Fyll i formuläret, så skapas ett förslag som någon i webbgruppen godkänner.
+title: "Evenemang: "
+labels: [nytt-evenemang]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        När du skickar formuläret skapas ett förslag på evenemanget automatiskt. Det syns på sajten när någon i webbgruppen har godkänt det.
+  - type: input
+    id: namn
+    attributes:
+      label: Namn på evenemanget
+      placeholder: AI-träff i Stockholm
+    validations:
+      required: true
+  - type: input
+    id: datum
+    attributes:
+      label: Datum
+      description: Skriv som ÅÅÅÅ-MM-DD.
+      placeholder: "2026-10-12"
+    validations:
+      required: true
+  - type: input
+    id: tid
+    attributes:
+      label: Starttid
+      description: Svensk tid, skriv som TT:MM.
+      placeholder: "18:00"
+    validations:
+      required: true
+  - type: input
+    id: plats
+    attributes:
+      label: Plats
+      placeholder: Stockholm, Sergels torg
+    validations:
+      required: true
+  - type: input
+    id: lank
+    attributes:
+      label: Länk till anmälan eller mer info
+      description: Hela adressen, med https:// i början. Lämna tomt om det inte finns någon.
+  - type: input
+    id: sammanfattning
+    attributes:
+      label: Kort beskrivning
+      description: En eller två meningar som visas i listan över evenemang.
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: Mer information
+      description: Vad som händer, vem det passar och om man behöver anmäla sig.

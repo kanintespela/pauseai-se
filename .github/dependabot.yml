@@ -1,0 +1,18 @@
+# Dependabot öppnar en PR en gång i månaden när Astro, andra paket eller
+# GitHub Actions har nya versioner. Granska och slå ihop den om kontrollen är grön.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      alla:
+        patterns: ['*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      alla:
+        patterns: ['*']
