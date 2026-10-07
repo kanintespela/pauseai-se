@@ -2,7 +2,6 @@
 title: Risker med artificiell intelligens
 description: AI hotar vår demokrati, vår teknologi och vår art.
 ---
-
 AI är en kraftfull teknik som i allt större utsträckning förändrar vår värld.
 Den kommer med fantastisk potential, men också med allvarliga risker, inklusive [existentiell katastrof](/existentiell-risk).
 
@@ -78,7 +77,7 @@ En paus i de största modellerna kan förhindra dem från att bli multifunktione
 Beroendet av produkter och tjänster som lär sig av personliga data lämnar oss som maktlösa separerade individer vare sig det är avsiktligt eller inte.
 Och det spelar på en ond cirkel med koncentrationen av ekonomisk makt och intelligens hos de företag som skapar dem.
 
-Om denna ekonomiska och teknologiska ojämlikhet härstammar från en handfull offentliga och privata enheter som producerar flera enkeländamåls-AI eller några multifunktions-AI, kan det leda till en kort maktkoncentration som sannolikt resulterar i en katastrof för alla.
+Om denna ekonomiska och teknologiska ojämlikhet härstammar från en handfull offentliga och privata enheter som producerar flera enkeländamåls-AI eller några multifunktions-AI, kan det leda till en maktkoncentration som sannolikt resulterar i en katastrof för alla.
 Löftet om sådan makt lockar fler aktörer att gå med i kapplöpningen mot botten och påskynda utvecklingen av större AI-system.
 Det ger fler felkällor och får riskerna att verka mindre, eftersom det stöder idén att de kan hanteras på egen hand, av ett företag eller en regering.
 
@@ -87,10 +86,12 @@ Så det är avgörande att agera så snart som möjligt, innan tävlingsdynamike
 Vi behöver internationellt samarbete eftersom det enda vinnande draget i detta konstiga spel är att inte spela, utan att pausa.
 
 ### Auktoritära regeringar
+
 Auktoritära och totalitära regeringar kan också använda AI-teknologier för att utöva makt över sina territorier och befolkningar.
 De kan kontrollera kommunikationskanaler eller upprätthålla sociala kredit- och massövervakningssystem som säkerställer att de behåller sin makt samtidigt som de kränker mänskliga rättigheter.
 
 ### Autonoma vapen
+
 Företag säljer redan AI-drivna vapen till regeringar.
 Lanius bygger flygande självmordsdrönare som autonomt identifierar fiender.
 Palantirs AIP-system använder stora språkmodeller för att analysera slagfältsdata och komma med optimala strategier.
@@ -108,7 +109,9 @@ En [studie från 2024](https://arxiv.org/abs/2401.03408) konstaterar att "modell
 Läs mer på [stopkillerrobots.org](https://www.stopkillerrobots.org) (på engelska).
 
 ## Nära framtida faror
+
 ### Biologiska vapen
+
 AI kan göra kunskap mer tillgänglig, vilket också inkluderar kunskap om hur man skapar biologiska vapen. En [studie från 2023](https://arxiv.org/abs/2306.03809) visade hur chattbottar kunde hjälpa studenter utan naturvetenskaplig bakgrund:
 
 > På en timme föreslog chatbotarna fyra potentiella pandemi-patogener, förklarade hur de kan genereras från syntetiskt DNA med hjälp av omvänd genetik, försåg namnen på DNA-syntesföretag som troligen inte screenar beställningar, identifierade detaljerade protokoll och hur man felsöker dem, och rekommenderade att någon som saknar färdigheterna att utföra omvänd genetik engagerar en kärnanläggning eller ett kontraktsforskningsföretag.
@@ -168,7 +171,7 @@ När AI fortsätter att utvecklas kan framtida system bli otroligt sofistikerade
 
 Det är inte bara så att värdeinlåsning kan göra att vi misslyckas med att uppnå den bästa sortens världar, utan det kan också leda till att vi hamnar i dystopier värre än utrotning som kan sträcka sig över all rumtid.
 
-Möjliga inlåsta dystopier med mycket lidande kallas _S-risker_(från engelskans suffering risk) och inkluderar världar där kännande varelser är förslavade och tvingade att göra hemska saker.
+Möjliga inlåsta dystopier med mycket lidande kallas *S-risker*(från engelskans suffering risk) och inkluderar världar där kännande varelser är förslavade och tvingade att göra hemska saker.
 Dessa varelser kan vara människor, djur, digitala människor eller någon annan främmande art som AI:n kan hitta i kosmos. Med tanke på hur svårt vi tycker att det är att lösa allians helt och hållet, hur illa vi människor behandlar varandra ibland, hur illa vi behandlar de flesta djur och hur vi behandlar nuvarande AI:er, verkar en framtid som denna inte så osannolik som vi hoppas.
 
 ## Vad kan vi göra?

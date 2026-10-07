@@ -6,6 +6,11 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    ignore:
+      # @astrojs/check stöder bara TypeScript 5 och 6. Ta bort raden när det
+      # stöder TypeScript 7, annars går sajten inte att bygga.
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
     groups:
       alla:
         patterns: ['*']
