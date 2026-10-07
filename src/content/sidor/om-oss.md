@@ -15,7 +15,7 @@ Vi vill att Sverige verkar för ett internationellt avtal som pausar utvecklinge
 
 ## Kontakt
 
-Vill du nå oss, till exempel som journalist? Fyll i [formuläret](/engagera-dig) och skriv vad det gäller, så hör vi av oss.
+Mejla oss på [sweden@pauseai.info](mailto:sweden@pauseai.info). Det gäller även journalister som vill ha en kommentar eller en intervju.
 
 ## Gå med
 

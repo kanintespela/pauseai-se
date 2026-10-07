@@ -8,11 +8,27 @@ const all = await getCollection('evenemang')
 // Sidan byggs om varje natt och vid varje ändring, så passerade evenemang flyttas till Tidigare.
 const upcoming = all.filter((e) => isUpcoming(e.data.date)).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
 const past = all.filter((e) => !isUpcoming(e.data.date)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+// webcal:// öppnar kalenderappen på mobil och dator; https-adressen behövs för Google Kalender.
+const calendarUrl = new URL(url('/evenemang.ics'), Astro.site).href
+const webcalUrl = calendarUrl.replace(/^https?:/, 'webcal:')
 ---
 
 <Base title="Evenemang" description="Kommande evenemang med PauseAI Sverige.">
 	<div class="container prose">
 		<h1>Evenemang</h1>
+		<div class="subscribe">
+			<p>
+				<strong>Få alla evenemang i din kalender.</strong> Nya evenemang dyker upp av sig själva.
+			</p>
+			<p>
+				<a class="button" href={webcalUrl}>Prenumerera i kalendern</a>
+			</p>
+			<p class="muted">
+				Använder du Google Kalender? Välj <em>Andra kalendrar → + → Från webbadress</em> och klistra in{' '}
+				<code>{calendarUrl}</code>
+			</p>
+		</div>
 		<h2>Kommande</h2>
 		{
 			upcoming.length > 0 ? (
@@ -35,3 +51,17 @@ const past = all.filter((e) => !isUpcoming(e.data.date)).sort((a, b) => b.data.d
 		<p class="muted">Se även <a href={url('/protester')}>tidigare protester</a>.</p>
 	</div>
 </Base>
+
+<style>
+	.subscribe {
+		padding: 1rem 1.25rem;
+		background: var(--bg-alt);
+		border-left: 4px solid var(--brand);
+	}
+	.subscribe p {
+		margin: 0.4rem 0;
+	}
+	.subscribe code {
+		word-break: break-all;
+	}
+</style>

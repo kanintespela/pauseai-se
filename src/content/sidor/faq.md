@@ -10,7 +10,7 @@ Vi strävar efter att övertyga våra regeringar att ingripa och [pausa utveckli
 Vi gör detta genom att informera allmänheten, prata med beslutsfattare och organisera protester.
 
 Du kan hitta oss på [Discord](https://discord.gg/2XXWXvErfA) (det är här de flesta av våra samordningar sker!), [Twitter](https://twitter.com/PauseAI), [Substack](https://substack.com/@pauseai), [Facebook](https://www.facebook.com/PauseAI), [TikTok](https://www.tiktok.com/@pauseai), [LinkedIn](https://www.linkedin.com/uas/login?session_redirect=/company/97035448/), [YouTube](https://www.youtube.com/@PauseAI) och [Instagram](https://www.instagram.com/pause_ai).
-Kontaktuppgifter till PauseAI Sverige hittar du på sidan [Om oss](/om-oss).
+Du når PauseAI Sverige på [sweden@pauseai.info](mailto:sweden@pauseai.info).
 
 ## Är ni bara rädda för förändringar och ny teknik?
 
