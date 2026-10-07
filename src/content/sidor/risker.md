@@ -29,7 +29,7 @@ Dessutom skulle det lägga grunden för framtida reglering som syftar till att m
 
 ### Deepfakes och imitation
 
-Falskt innehåll skapat med AI, även kallat deepfakes, kan inte bara stjäla kända personers identiteter och [skapa desinformation](https://time.com/6565446/biden-deepfake-audio/), utan de kan också imitera dig.
+Falskt innehåll skapat med AI, även kallat deepfakes, kan inte bara stjäla kända personers identiteter och [skapa desinformation](https://web.archive.org/web/20240206013008/https://time.com/6565446/biden-deepfake-audio/), utan de kan också imitera dig.
 Alla med foton, videor eller ljud av någon och tillräcklig kunskap kan skapa deepfakes av dem och använda dem för att begå bedrägerier, trakassera dem eller skapa sexuellt icke-konsensuellt material.
 Ungefär 96% av allt deepfake-innehåll är sexuellt material.
 

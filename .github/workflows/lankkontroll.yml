@@ -18,17 +18,27 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      # Kontrollerar den publicerade sajten, så att även interna länkar som
+      # /donera följs på samma sätt som för en besökare.
+      - name: Lista sajtens sidor
+        run: node scripts/sidor.mjs > sidor.txt
       - name: Kontrollera länkar
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          # 403, 429 och 999 betyder oftast att sajten stoppar robotar, inte att länken är död.
+          # 401, 403, 429 och 999 betyder oftast att sajten stoppar robotar, inte
+          # att länken är död. Arkivkopior och typsnittsservrar hoppas över.
           args: >-
             --no-progress
             --scheme https --scheme http
-            --accept 200..=299,403,429,999
+            --accept 200..=299,401,403,429,999
             --max-retries 2
-            'src/**/*.md' 'src/**/*.astro' README.md
+            --exclude '^https://fonts\.(googleapis|gstatic)\.com'
+            --exclude '^https?://web\.archive\.org/'
+            --files-from sidor.txt
           output: lankar.md
           fail: false
       - name: Öppna eller uppdatera ärendet

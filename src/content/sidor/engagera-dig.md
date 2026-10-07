@@ -40,7 +40,7 @@ Aktiviteterna är strukturerade utifrån den tid de tar att utföra.
 
 - [**Protestera**](/protester): gå med i [en av protesterna](/protester) eller [organisera en själv](https://pauseai.info/organizing-a-protest).
 - [**Lobbying**](https://pauseai.info/lobby-tips): övertyga din regering att arbeta för en paus och förbereda sig för [toppmötet](https://pauseai.info/summit).
-- **Gå med i ett av våra [team](https://pauseai.info/teams)** och samarbeta med andra motiverade volontärer.
+- **Gå med i ett av våra [team](https://pauseai.info/join)** och samarbeta med andra motiverade volontärer.
 - **[Träffa](https://pauseai.info/communities)** andra människor i en PauseAI-gemenskap nära dig. Om det inte finns någon gemenskap nära dig, överväg att starta en.
 - **Prata** med vänner, bekanta, arbetskollegor om detta. Svara på deras frågor och få dem att agera.
 - [**Flygblad**](https://pauseai.info/flyering): skriv ut, dela och sätt upp flygblad.
@@ -68,7 +68,7 @@ Aktiviteterna är strukturerade utifrån den tid de tar att utföra.
 
 ### Om du kan (internationell) lag
 
-- **Hjälp till att utarbeta policy**. [Utkastexempel](https://www.campaignforaisafety.org/celebrating-the-winners-law-student-moratorium-treaty-competition/). ([några](https://futureoflife.org/wp-content/uploads/2023/04/FLI_Policymaking_In_The_Pause.pdf) [ramverk](https://www.openphilanthropy.org/research/12-tentative-ideas-for-us-ai-policy/))
+- **Hjälp till att utarbeta policy**. [Utkastexempel](https://web.archive.org/web/20231025174441/https://www.campaignforaisafety.org/celebrating-the-winners-law-student-moratorium-treaty-competition/). ([några](https://futureoflife.org/wp-content/uploads/2023/04/FLI_Policymaking_In_The_Pause.pdf) [ramverk](https://www.openphilanthropy.org/research/12-tentative-ideas-for-us-ai-policy/))
 - **Gör inlagor till statliga förfrågningar om kommentarer** om AI-policy ([exempel](https://ntia.gov/issues/artificial-intelligence/request-for-comments)).
 
 ### Om du kan skriva webbmaterial

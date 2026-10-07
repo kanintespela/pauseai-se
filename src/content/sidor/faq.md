@@ -56,7 +56,7 @@ Vi använder det mesta av pengarna för att möjliggöra för lokala gemenskaper
 
 ## Vad är era planer?
 
-Fokusera på [att växa rörelsen](https://pauseai.info/growth-strategy), organisera protester, lobbyverksamhet hos politiker och informera allmänheten.
+Fokusera på [att växa rörelsen](https://web.archive.org/web/20251206000452/https://pauseai.info/growth-strategy), organisera protester, lobbyverksamhet hos politiker och informera allmänheten.
 
 Kolla in vår [roadmap](https://pauseai.info/roadmap) för en detaljerad översikt över våra planer och vad vi kan göra med mer finansiering.
 
@@ -67,7 +67,7 @@ Kolla in vår [förändringsteori](https://pauseai.info/theory-of-change) för e
 ## Varför protesterar ni?
 
 - Att protestera visar världen att vi bryr oss om denna fråga. Genom att protestera visar vi att vi är villiga att lägga vår tid och energi för att få människor att lyssna.
-- Protester kan och kommer ofta att [positivt påverka](https://www.socialchangelab.org/_files/ugd/503ba4_052959e2ee8d4924934b7efe3916981e.pdf) allmän opinion, röstbeteende, företagsbeteende och policy.
+- Protester kan och kommer ofta att [positivt påverka](https://web.archive.org/web/20260128094722/https://www.socialchangelab.org/_files/ugd/503ba4_052959e2ee8d4924934b7efe3916981e.pdf) allmän opinion, röstbeteende, företagsbeteende och policy.
 - Överlägset [de flesta människor stödjer](https://today.yougov.com/politics/articles/31718-do-protesters-want-help-or-hurt-america) fredliga/ickevåldsamma protester.
 - Det finns [ingen "bakslag" effekt](https://journals.sagepub.com/doi/full/10.1177/2378023120925949) [såvida inte protesten är våldsam](https://news.stanford.edu/2018/10/12/how-violent-protest-can-backfire/). Våra protester är fredliga och ickevåldsamma.
 - Det är en social bindningsupplevelse. Du träffar andra människor som delar dina bekymmer och vilja att agera.
@@ -170,4 +170,4 @@ För att erkänna att _vi faktiskt är i fara_ är en mycket, mycket skrämmande
 Det finns många [saker du kan göra](/engagera-dig).
 På egen hand kan du skriva ett [brev](https://pauseai.info/writing-a-letter), posta [flyers](https://pauseai.info/flyering), informera [andra](/engagera-dig), delta i en [protest](/protester), eller [donera](/donera) pengar!
 Men ännu viktigare: du kan [gå med i PauseAI](/engagera-dig) och samordna med andra som tar åtgärder.
-Om du vill bidra mer kan du bli volontär och gå med i ett av våra [team](https://pauseai.info/teams).
+Om du vill bidra mer kan du bli volontär och gå med i ett av våra [team](https://pauseai.info/join).
