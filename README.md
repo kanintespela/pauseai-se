@@ -23,7 +23,7 @@ Du behöver inte kunna koda, men du behöver ett gratis konto på [github.com](h
 1. Be någon i webbgruppen att lägga till dig som medarbetare i repot.
 2. Gå till [app.pagescms.org](https://app.pagescms.org) och logga in med GitHub.
 3. Välj **kanintespela/pauseai-se**.
-4. Välj **Nyheter**, **Evenemang** eller **Sidor** i menyn och klicka på **Add an entry** för att skapa något nytt, eller på en befintlig post för att ändra den.
+4. Välj **Nyheter**, **Evenemang**, **Det vi har gjort**, **Berättelser** eller **Sidor** i menyn och klicka på **Add an entry** för att skapa något nytt, eller på en befintlig post för att ändra den.
 5. Fyll i fälten. Varje fält har en hjälptext.
 6. Klicka **Save**. Ändringen syns på sajten efter ett par minuter.
 
@@ -34,6 +34,8 @@ Bra att veta:
 - **Skriv inte HTML i textfältet.** Redigeraren tar bort det när du sparar. Behöver en sida en knapp finns fälten "Knapp, text" och "Knapp, länk".
 - **Bilder** sparas i `public/bilder/`. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns.
 - **Evenemang som har varit** flyttas av sig själva till Tidigare natten efter.
+- **Det vi har gjort** är listan över våra protester, politikermöten, debattartiklar och liknande. Lägg upp något efter varje insats, gärna med en siffra ("ca 30 deltagare"), bilder och länkar till pressbevakning. Skriv bara siffror vi kan stå för.
+- **Berättelser** är medlemmars egna ord om varför de engagerar sig. Publicera aldrig en berättelse innan personen har godkänt både texten och hur namnet visas, och ta bort den direkt om personen ber om det. Kryssa i *Visa under Möt oss* för kontaktpersoner som vill synas på startsidan.
 - **Allt som sparas syns publikt** och finns kvar i historiken. Skriv aldrig in personuppgifter som telefonnummer eller privata e-postadresser.
 
 ### Utan Pages CMS

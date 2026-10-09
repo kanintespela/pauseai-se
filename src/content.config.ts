@@ -58,4 +58,31 @@ const evenemang = defineCollection({
 	})
 })
 
-export const collections = { sidor, nyheter, evenemang }
+// Det vi har gjort: protester, möten med politiker, debattartiklar och liknande.
+const insatser = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/insatser' }),
+	schema: z.object({
+		title: z.string(),
+		date: z.coerce.date(),
+		location: z.string().optional(),
+		siffra: z.string().optional(),
+		bilder: z.array(z.string()).optional(),
+		lankar: z.array(z.object({ text: z.string(), url: z.string() })).optional()
+	})
+})
+
+// Medlemmars egna ord om varför de engagerar sig. Kontaktpersoner visas också under
+// Möt oss på startsidan.
+const berattelser = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/berattelser' }),
+	schema: z.object({
+		namn: z.string(),
+		date: z.coerce.date(),
+		ort: z.string().optional(),
+		bild: z.string().optional(),
+		kontaktperson: z.boolean().optional(),
+		roll: z.string().optional()
+	})
+})
+
+export const collections = { sidor, nyheter, evenemang, insatser, berattelser }

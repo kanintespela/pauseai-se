@@ -12,8 +12,11 @@ const paths = [
 	'/',
 	'/nyheter',
 	'/evenemang',
+	'/vad-vi-har-gjort',
+	'/berattelser',
 	...ids('src/content/sidor').map((id) => `/${id}`),
 	...ids('src/content/nyheter').map((id) => `/nyheter/${id}`),
-	...ids('src/content/evenemang').map((id) => `/evenemang/${id}`)
+	...ids('src/content/evenemang').map((id) => `/evenemang/${id}`),
+	...ids('src/content/berattelser').map((id) => `/berattelser/${id}`)
 ]
 console.log(paths.map((p) => site + p).join('\n'))
