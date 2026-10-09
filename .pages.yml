@@ -8,10 +8,10 @@ media:
   categories: [image]
 
 content:
-  - name: nyheter
-    label: Nyheter
+  - name: blogg
+    label: Blogg
     type: collection
-    path: src/content/nyheter
+    path: src/content/blogg
     filename: "{year}-{month}-{day}-{primary}.md"
     view:
       fields: [title, date]
@@ -23,27 +23,31 @@ content:
     fields:
       - name: title
         label: Rubrik
-        description: Kort och konkret, till exempel "Vi demonstrerade utanför riksdagen".
+        description: Kort och konkret, till exempel "Vi demonstrerade utanför riksdagen" eller "Därför behöver Sverige driva frågan i EU".
         type: string
         required: true
       - name: date
         label: Datum
-        description: Dagen nyheten publiceras. Nyheter sorteras efter datum, nyast först.
+        description: Dagen inlägget publiceras. Inläggen sorteras efter datum, nyast först.
         type: date
         required: true
         options:
           format: yyyy-MM-dd
+      - name: author
+        label: Författare
+        description: Valfri. Den som har skrivit inlägget, så som personen vill synas. Lämna tomt för att visa "PauseAI Sverige".
+        type: string
       - name: description
         label: Kort sammanfattning
-        description: Visas i nyhetslistan och när länken delas.
+        description: Visas i bloggen och när länken delas. En eller två meningar.
         type: text
       - name: image
         label: Bild
-        description: Valfri. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns om lov. Helst under 1 MB.
+        description: Valfri men rekommenderad, eftersom bloggen visar bilden som omslag. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns om lov. Helst under 1 MB.
         type: image
       - name: body
         label: Text
-        description: Själva nyheten. Använd knapparna eller skriv / för rubriker, listor, länkar och bilder.
+        description: Själva inlägget. Använd knapparna eller skriv / för rubriker, listor, länkar och bilder.
         type: rich-text
         options:
           format: markdown

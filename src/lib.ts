@@ -4,7 +4,7 @@ export function url(path = '/'): string {
 	return base + (path.startsWith('/') ? path : `/${path}`)
 }
 
-// Datum utan tid (nyheter) lagras som midnatt UTC.
+// Datum utan tid (blogginlägg) lagras som midnatt UTC.
 const dateFormat = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'long', timeZone: 'UTC' })
 const dateTimeFormat = new Intl.DateTimeFormat('sv-SE', {
 	dateStyle: 'full',
@@ -39,7 +39,7 @@ export const menu = [
 	{ href: '/forslaget', label: 'Förslaget' },
 	{ href: '/engagera-dig', label: 'Engagera dig' },
 	{ href: '/evenemang', label: 'Evenemang' },
-	{ href: '/nyheter', label: 'Nyheter' },
+	{ href: '/blogg', label: 'Blogg' },
 	{ href: '/faq', label: 'FAQ' },
 	{ href: '/om-oss', label: 'Om oss' }
 ]

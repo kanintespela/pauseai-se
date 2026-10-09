@@ -10,12 +10,12 @@ const ids = (dir) => fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f
 
 const paths = [
 	'/',
-	'/nyheter',
+	'/blogg',
 	'/evenemang',
 	'/vad-vi-har-gjort',
 	'/berattelser',
 	...ids('src/content/sidor').map((id) => `/${id}`),
-	...ids('src/content/nyheter').map((id) => `/nyheter/${id}`),
+	...ids('src/content/blogg').map((id) => `/blogg/${id}`),
 	...ids('src/content/evenemang').map((id) => `/evenemang/${id}`),
 	...ids('src/content/berattelser').map((id) => `/berattelser/${id}`)
 ]

@@ -1,10 +1,10 @@
 # Bidra med kod
 
-Det här är för dig som ska ändra kod, design eller automatik. Vill du lägga upp en nyhet eller ett evenemang räcker [README](README.md). Ska du skriva texter, läs [docs/kallor.md](docs/kallor.md).
+Det här är för dig som ska ändra kod, design eller automatik. Vill du lägga upp ett blogginlägg eller ett evenemang räcker [README](README.md). Ska du skriva texter, läs [docs/kallor.md](docs/kallor.md).
 
 ## Arbetsflöde
 
-- **Innehåll** (nyheter, evenemang, sidornas text) ändras i Pages CMS. Det sparas direkt på `main` och publiceras på ett par minuter.
+- **Innehåll** (blogginlägg, evenemang, sidornas text) ändras i Pages CMS. Det sparas direkt på `main` och publiceras på ett par minuter.
 - **Kod** (allt utanför `src/content/`) ändras via en PR:
   1. Skapa en gren från `main`.
   2. Kör `npm run check` och `npm run build` lokalt.
@@ -31,7 +31,7 @@ npm run preview  # visar det byggda resultatet
 
 | Sökväg | Innehåll |
 | --- | --- |
-| `src/content/nyheter/`, `evenemang/`, `sidor/`, `insatser/`, `berattelser/` | Innehållet, en Markdown-fil per post. Redigeras helst i Pages CMS. `insatser` visas på Det vi har gjort och `berattelser` på Därför engagerar vi oss. |
+| `src/content/blogg/`, `evenemang/`, `sidor/`, `insatser/`, `berattelser/` | Innehållet, en Markdown-fil per post. Redigeras helst i Pages CMS. `insatser` visas på Det vi har gjort och `berattelser` på Därför engagerar vi oss. |
 | `src/content.config.ts` | Vilka fält varje sorts innehåll har. Måste stämma med `.pages.yml`. |
 | `.pages.yml` | Formulären i Pages CMS: fält, etiketter och hjälptexter. |
 | `src/pages/` | Sidmallar. `[slug].astro` visar sidorna, `index.astro` är startsidan, `*.ics.ts` är kalenderfilerna. |
@@ -52,6 +52,7 @@ npm run preview  # visar det byggda resultatet
 - **Ett evenemang räknas som kommande hela dagen det äger rum** (`isUpcoming`), så att det inte försvinner från listan mitt under evenemanget. Sajten byggs om varje natt så att listan hålls aktuell.
 - **HTML i Markdown överlever inte Pages CMS.** Redigeraren gör om HTML till vanlig text eller tar bort det, även kommentarer. Behövs något mer än text, lägg det som ett fält i `content.config.ts` och `.pages.yml`, som knappen på sidorna (`knapp_text`, `knapp_lank`).
 - **Fält ändras på två ställen.** Ett nytt fält i `content.config.ts` behöver också läggas till i `.pages.yml`, annars syns det inte i Pages CMS.
+- **Bloggen hette Nyheter tidigare.** `src/pages/nyheter/` skickar `/nyheter` och `/nyheter/…` vidare till `/blogg`. Ta inte bort omdirigeringarna, eftersom gamla länkar kan finnas i delade inlägg.
 - **Sidan Engagera dig har en egen mall** (`src/pages/engagera-dig.astro`) för att visa anmälningsformuläret, och hoppas därför över i `[slug].astro`.
 - **Startsidan hämtar de tre senaste insatserna och berättelserna själv.** Avsnitten Det vi har gjort, Därför engagerar vi oss och Möt oss syns bara när det finns något att visa. Möt oss visar berättelser där *Visa under Möt oss* är ikryssat.
 - **Startsidans händelser och citat skrivs in för hand** i `src/pages/index.astro`. Varje post har en kommentar `// Belagt ID` så att källkontrollen hittar den. Se [docs/kallor.md](docs/kallor.md).

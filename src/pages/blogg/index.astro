@@ -1,0 +1,130 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import SkrivForOss from '../../components/SkrivForOss.astro'
+import { formatDate, imageUrl, url } from '../../lib'
+
+const posts = (await getCollection('blogg')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const [latest, ...rest] = posts
+---
+
+<Base title="Blogg" description="Texter från volontärerna i PauseAI Sverige: debatt, analys och rapporter från det vi gör.">
+	<div class="container-wide page">
+		<h1>Blogg</h1>
+		<p class="lead">Texter från volontärerna i PauseAI Sverige: debatt, analys och rapporter från det vi gör.</p>
+		{posts.length === 0 && <p>Inga inlägg ännu.</p>}
+		{
+			latest && (
+				<article class="post featured" class:list={{ 'no-image': !latest.data.image }}>
+					{latest.data.image && <img src={imageUrl(latest.data.image)} alt="" />}
+					<div>
+						<p class="meta muted">
+							<time datetime={latest.data.date.toISOString()}>{formatDate(latest.data.date)}</time> ·{' '}
+							{latest.data.author ?? 'PauseAI Sverige'}
+						</p>
+						<h2>
+							<a href={url(`/blogg/${latest.id}`)}>{latest.data.title}</a>
+						</h2>
+						{latest.data.description && <p>{latest.data.description}</p>}
+					</div>
+				</article>
+			)
+		}
+		{
+			rest.length > 0 && (
+				<div class="grid">
+					{rest.map((post) => (
+						<article class="post">
+							{post.data.image ? <img src={imageUrl(post.data.image)} alt="" loading="lazy" /> : <div class="placeholder" />}
+							<p class="meta muted">
+								<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time> ·{' '}
+								{post.data.author ?? 'PauseAI Sverige'}
+							</p>
+							<h3>
+								<a href={url(`/blogg/${post.id}`)}>{post.data.title}</a>
+							</h3>
+							{post.data.description && <p>{post.data.description}</p>}
+						</article>
+					))}
+				</div>
+			)
+		}
+		<div class="container-inner">
+			<SkrivForOss />
+		</div>
+	</div>
+</Base>
+
+<style>
+	.page {
+		padding-top: 2rem;
+	}
+	.lead {
+		max-width: 40rem;
+		font-size: 1.15rem;
+	}
+	.post {
+		position: relative;
+	}
+	.post img,
+	.placeholder {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 4px;
+	}
+	.placeholder {
+		background: linear-gradient(135deg, var(--brand), var(--brand-subtle));
+	}
+	.meta {
+		margin: 0.75rem 0 0.25rem;
+		font-size: 0.95rem;
+	}
+	h2,
+	h3 {
+		margin: 0 0 0.5rem;
+	}
+	h2 {
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+	}
+	h2 a,
+	h3 a {
+		color: var(--text);
+		text-decoration: none;
+	}
+	/* Hela kortet blir klickbart via rubrikens länk. */
+	h2 a::after,
+	h3 a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+	}
+	.post:hover h2 a,
+	.post:hover h3 a {
+		color: var(--brand-dark);
+	}
+	.post p:last-child {
+		margin-bottom: 0;
+	}
+	.featured {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: 1rem 2rem;
+		align-items: center;
+		margin: 2rem 0 3rem;
+	}
+	.featured.no-image {
+		padding: 1.5rem;
+		border-top: 6px solid var(--brand);
+		background: var(--bg-alt);
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+		gap: 2.5rem 1.5rem;
+	}
+	.container-inner {
+		max-width: var(--page-width);
+	}
+</style>

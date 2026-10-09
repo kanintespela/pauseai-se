@@ -37,11 +37,12 @@ const sidor = defineCollection({
 	})
 })
 
-const nyheter = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/nyheter' }),
+const blogg = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/blogg' }),
 	schema: z.object({
 		title: z.string(),
 		date: z.coerce.date(),
+		author: z.string().optional(),
 		description: z.string().optional(),
 		image: z.string().optional()
 	})
@@ -85,4 +86,4 @@ const berattelser = defineCollection({
 	})
 })
 
-export const collections = { sidor, nyheter, evenemang, insatser, berattelser }
+export const collections = { sidor, blogg, evenemang, insatser, berattelser }

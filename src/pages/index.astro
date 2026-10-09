@@ -11,7 +11,7 @@ const upcoming = (await getCollection('evenemang'))
 	.filter((e) => isUpcoming(e.data.date))
 	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
 	.slice(0, 3)
-const news = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
+const posts = (await getCollection('blogg')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
 const insatser = (await getCollection('insatser')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
 const stories = (await getCollection('berattelser')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 const contacts = stories.filter((s) => s.data.kontaktperson)
@@ -180,18 +180,21 @@ const quotes = [
 			<p><a href={url('/evenemang')}>Alla evenemang →</a></p>
 		</div>
 		<div>
-			<h2>Nyheter</h2>
+			<h2>Blogg</h2>
 			<ul class="news">
 				{
-					news.map((n) => (
+					posts.map((n) => (
 						<li>
-							<time class="muted" datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time>
-							<a href={url(`/nyheter/${n.id}`)}>{n.data.title}</a>
+							<span class="muted">
+								<time datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time> ·{' '}
+								{n.data.author ?? 'PauseAI Sverige'}
+							</span>
+							<a href={url(`/blogg/${n.id}`)}>{n.data.title}</a>
 						</li>
 					))
 				}
 			</ul>
-			<p><a href={url('/nyheter')}>Alla nyheter →</a></p>
+			<p><a href={url('/blogg')}>Alla inlägg →</a> · <a href={url('/blogg#skriv')}>Skriv för oss →</a></p>
 		</div>
 	</section>
 
