@@ -1,0 +1,119 @@
+---
+import { render, type CollectionEntry } from 'astro:content'
+import { excerpt, formatMonth, imageUrl } from '../lib'
+
+interface Props {
+	insatser: CollectionEntry<'insatser'>[]
+	/** Kort version för startsidan: utdrag i stället för hela texten, inga bilder. */
+	compact?: boolean
+}
+const { insatser, compact = false } = Astro.props
+const items = await Promise.all(insatser.map(async (insats) => ({ insats, Content: (await render(insats)).Content })))
+---
+
+<ol class="insatser" class:list={{ compact }}>
+	{
+		items.map(({ insats, Content }) => (
+			<li>
+				<p class="when">
+					<time datetime={insats.data.date.toISOString()}>{formatMonth(insats.data.date)}</time>
+					{insats.data.location && <span> · {insats.data.location}</span>}
+				</p>
+				<h3>{insats.data.title}</h3>
+				{insats.data.siffra && <p class="siffra">{insats.data.siffra}</p>}
+				{compact ? <p>{excerpt(insats.body)}</p> : <Content />}
+				{!compact && insats.data.bilder && insats.data.bilder.length > 0 && (
+					<div class="bilder">
+						{insats.data.bilder.map((src) => (
+							<a href={imageUrl(src)}>
+								<img src={imageUrl(src)} alt="" loading="lazy" />
+							</a>
+						))}
+					</div>
+				)}
+				{!compact && insats.data.lankar && insats.data.lankar.length > 0 && (
+					<p class="lankar">
+						{insats.data.lankar.map((l, i) => (
+							<>
+								{i > 0 && ' · '}
+								<a href={l.url}>{l.text}</a>
+							</>
+						))}
+					</p>
+				)}
+			</li>
+		))
+	}
+</ol>
+
+<style>
+	.insatser {
+		list-style: none;
+		margin: 1.5rem 0 0;
+		padding: 0;
+	}
+	li {
+		position: relative;
+		padding: 0 0 2rem 1.5rem;
+		border-left: 4px solid var(--brand);
+	}
+	li:last-child {
+		padding-bottom: 0.5rem;
+	}
+	li::before {
+		content: '';
+		position: absolute;
+		left: -0.6rem;
+		top: 0.35rem;
+		width: 0.85rem;
+		height: 0.85rem;
+		border-radius: 50%;
+		background: var(--bg);
+		border: 3px solid var(--brand);
+	}
+	.when {
+		margin: 0;
+		font-family: var(--font-heading);
+		font-size: 1.15rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--brand-dark);
+	}
+	h3 {
+		margin: 0.15rem 0 0.4rem;
+	}
+	.siffra {
+		display: inline-block;
+		margin: 0 0 0.5rem;
+		padding: 0.1rem 0.6rem;
+		background: var(--brand-subtle);
+		font-weight: 700;
+	}
+	li :global(p) {
+		margin: 0 0 0.6rem;
+	}
+	.bilder {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+		gap: 0.5rem;
+		margin: 0.75rem 0;
+	}
+	.bilder img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 4px;
+	}
+	.lankar {
+		font-size: 0.95rem;
+	}
+	.compact {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1.5rem;
+	}
+	.compact li {
+		padding-bottom: 0;
+	}
+</style>

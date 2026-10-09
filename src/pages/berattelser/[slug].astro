@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import { excerpt, imageUrl, url } from '../../lib'
+
+export async function getStaticPaths() {
+	const stories = await getCollection('berattelser')
+	return stories.map((story) => ({ params: { slug: story.id }, props: { story } }))
+}
+
+const { story } = Astro.props
+const { Content } = await render(story)
+const { namn, ort, bild } = story.data
+---
+
+<Base title={`${namn}: därför engagerar jag mig`} description={excerpt(story.body, 160)}>
+	<article class="container prose">
+		<p class="muted"><a href={url('/berattelser')}>Därför engagerar vi oss</a></p>
+		<header>
+			{bild && <img src={imageUrl(bild)} alt="" />}
+			<div>
+				<h1>{namn}</h1>
+				{ort && <p class="muted">{ort}</p>}
+			</div>
+		</header>
+		<Content />
+		<p><a href={url('/berattelser#dela')}>Dela din egen berättelse →</a></p>
+	</article>
+</Base>
+
+<style>
+	header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+	header h1,
+	header p {
+		margin: 0;
+	}
+	img {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+</style>

@@ -2,13 +2,19 @@
 import { getCollection } from 'astro:content'
 import Base from '../layouts/Base.astro'
 import EventList from '../components/EventList.astro'
-import { formatDate, isUpcoming, url } from '../lib'
+import InsatsList from '../components/InsatsList.astro'
+import OnboardingEmbed from '../components/OnboardingEmbed.astro'
+import StoryCard from '../components/StoryCard.astro'
+import { formatDate, imageUrl, isUpcoming, url } from '../lib'
 
 const upcoming = (await getCollection('evenemang'))
 	.filter((e) => isUpcoming(e.data.date))
 	.sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
 	.slice(0, 3)
-const news = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
+const posts = (await getCollection('blogg')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
+const insatser = (await getCollection('insatser')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3)
+const stories = (await getCollection('berattelser')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const contacts = stories.filter((s) => s.data.kontaktperson)
 
 const sections = [
 	{
@@ -95,8 +101,9 @@ const quotes = [
 				tills vi vet hur de kan göras säkra.
 			</p>
 			<p class="actions">
-				<a class="button" href={url('/engagera-dig')}>Gå med</a>
-				<a class="button secondary" href={url('/forslaget')}>Vårt förslag</a>
+				<a class="button" href="#ga-med">Gå med</a>
+				<a class="button secondary" href="#evenemang">Kommande evenemang ↓</a>
+				<a class="button secondary" href={url('/vad-vi-har-gjort')}>Det vi har gjort →</a>
 			</p>
 		</div>
 	</section>
@@ -148,8 +155,20 @@ const quotes = [
 		</div>
 	</section>
 
+	{
+		insatser.length > 0 && (
+			<section class="container-wide done">
+				<h2>Det vi har gjort</h2>
+				<InsatsList insatser={insatser} compact />
+				<p>
+					<a href={url('/vad-vi-har-gjort')}>Allt vi har gjort →</a>
+				</p>
+			</section>
+		)
+	}
+
 	<section class="container-wide split">
-		<div>
+		<div id="evenemang">
 			<h2>Kommande evenemang</h2>
 			{
 				upcoming.length > 0 ? (
@@ -161,29 +180,81 @@ const quotes = [
 			<p><a href={url('/evenemang')}>Alla evenemang →</a></p>
 		</div>
 		<div>
-			<h2>Nyheter</h2>
+			<h2>Blogg</h2>
 			<ul class="news">
 				{
-					news.map((n) => (
+					posts.map((n) => (
 						<li>
-							<time class="muted" datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time>
-							<a href={url(`/nyheter/${n.id}`)}>{n.data.title}</a>
+							<span class="muted">
+								<time datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time> ·{' '}
+								{n.data.author ?? 'PauseAI Sverige'}
+							</span>
+							<a href={url(`/blogg/${n.id}`)}>{n.data.title}</a>
 						</li>
 					))
 				}
 			</ul>
-			<p><a href={url('/nyheter')}>Alla nyheter →</a></p>
+			<p><a href={url('/blogg')}>Alla inlägg →</a> · <a href={url('/blogg#skriv')}>Skriv för oss →</a></p>
 		</div>
 	</section>
 
-	<section class="cta">
-		<div class="container-wide">
-			<h2><u>Du</u> kan hjälpa</h2>
-			<p>
-				För få människor är väl insatta i de potentiella riskerna med AI. Informera andra och hjälp till att stoppa
-				den här kapplöpningen mot botten.
-			</p>
-			<a class="button" href={url('/engagera-dig')}>Engagera dig</a>
+	{
+		stories.length > 0 && (
+			<section class="container-wide stories">
+				<h2>Därför engagerar vi oss</h2>
+				<div class="story-grid">
+					{stories.slice(0, 3).map((story) => (
+						<StoryCard story={story} />
+					))}
+				</div>
+				<p>
+					<a href={url('/berattelser')}>Alla berättelser →</a> · <a href={url('/berattelser#dela')}>Dela din →</a>
+				</p>
+			</section>
+		)
+	}
+
+	{
+		contacts.length > 0 && (
+			<section class="container-wide people">
+				<h2>Möt oss</h2>
+				<ul>
+					{contacts.map((c) => (
+						<li>
+							{c.data.bild ? (
+								<img src={imageUrl(c.data.bild)} alt="" loading="lazy" />
+							) : (
+								<span class="initial" aria-hidden="true">
+									{c.data.namn.charAt(0)}
+								</span>
+							)}
+							<strong>{c.data.namn}</strong>
+							{c.data.roll && <span class="muted">{c.data.roll}</span>}
+						</li>
+					))}
+				</ul>
+				<p>
+					Hör av dig på <a href="mailto:sweden@pauseai.info">sweden@pauseai.info</a>.
+				</p>
+			</section>
+		)
+	}
+
+	<section class="cta" id="ga-med">
+		<div class="container-wide join">
+			<div>
+				<h2><u>Du</u> kan hjälpa</h2>
+				<p>
+					För få människor är väl insatta i de potentiella riskerna med AI. Informera andra och hjälp till att stoppa
+					den här kapplöpningen mot botten.
+				</p>
+				<p>
+					Fyll i formuläret så hör vi av oss och berättar hur du kan vara med. Du bestämmer själv hur mycket tid du
+					vill lägga.
+				</p>
+				<p><a href={url('/engagera-dig')}>Fler sätt att hjälpa till →</a></p>
+			</div>
+			<OnboardingEmbed />
 		</div>
 	</section>
 </Base>
@@ -208,15 +279,6 @@ const quotes = [
 		flex-wrap: wrap;
 		gap: 0.75rem;
 		margin-top: 1.5rem;
-	}
-	.button.secondary {
-		background: transparent;
-		color: var(--text);
-		box-shadow: inset 0 0 0 2px var(--text);
-	}
-	.button.secondary:hover {
-		background: var(--text);
-		color: var(--bg);
 	}
 	.cards {
 		display: grid;
@@ -316,6 +378,56 @@ const quotes = [
 	.news a {
 		font-weight: 700;
 	}
+	.done,
+	.stories,
+	.people {
+		padding-top: 3rem;
+	}
+	.done h2,
+	.stories h2,
+	.people h2 {
+		margin-top: 0;
+	}
+	.story-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1.5rem;
+		margin: 1.5rem 0;
+	}
+	.people ul {
+		list-style: none;
+		margin: 1.5rem 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+		gap: 1.5rem;
+	}
+	.people li {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		line-height: 1.3;
+	}
+	.people img,
+	.people .initial {
+		width: 6rem;
+		height: 6rem;
+		margin-bottom: 0.5rem;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+	.people .initial {
+		display: grid;
+		place-items: center;
+		padding-top: 0.15em;
+		line-height: 1;
+		background: var(--brand);
+		color: #000;
+		font-family: var(--font-heading);
+		font-size: 2.5rem;
+		font-weight: 700;
+	}
 	.cta {
 		margin-top: 3rem;
 		padding: 3rem 0;
@@ -329,12 +441,17 @@ const quotes = [
 	.cta p {
 		max-width: 38rem;
 	}
-	.cta .button {
-		background: #000;
-		color: #fff;
+	.cta a {
+		color: #000;
+		font-weight: 700;
 	}
-	.cta .button:hover {
-		background: #333;
-		color: #fff;
+	.join {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: 1rem 3rem;
+		align-items: start;
+	}
+	.join :global(.onboarding) {
+		margin: 0;
 	}
 </style>

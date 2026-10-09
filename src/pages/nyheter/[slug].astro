@@ -1,22 +1,15 @@
 ---
-import { getCollection, render } from 'astro:content'
-import Base from '../../layouts/Base.astro'
-import { formatDate, url } from '../../lib'
+// Bloggen hette Nyheter fram till oktober 2026. Gamla länkar ska fortsätta fungera.
+import { getCollection } from 'astro:content'
+import Redirect from '../../components/Redirect.astro'
+import { url } from '../../lib'
 
 export async function getStaticPaths() {
-	const nyheter = await getCollection('nyheter')
-	return nyheter.map((nyhet) => ({ params: { slug: nyhet.id }, props: { nyhet } }))
+	const posts = await getCollection('blogg')
+	return posts.map((post) => ({ params: { slug: post.id } }))
 }
 
-const { nyhet } = Astro.props
-const { Content } = await render(nyhet)
+const { slug } = Astro.params
 ---
 
-<Base title={nyhet.data.title} description={nyhet.data.description}>
-	<article class="container prose">
-		<p class="muted"><a href={url('/nyheter')}>Nyheter</a> · <time datetime={nyhet.data.date.toISOString()}>{formatDate(nyhet.data.date)}</time></p>
-		<h1>{nyhet.data.title}</h1>
-		{nyhet.data.image && <img src={nyhet.data.image.startsWith('/') ? url(nyhet.data.image) : nyhet.data.image} alt="" />}
-		<Content />
-	</article>
-</Base>
+<Redirect to={url(`/blogg/${slug}`)} />

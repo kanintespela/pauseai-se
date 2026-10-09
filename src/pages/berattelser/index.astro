@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import StoryCard from '../../components/StoryCard.astro'
+
+const stories = (await getCollection('berattelser')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+const subject = encodeURIComponent('Min berättelse')
+const body = encodeURIComponent(
+	'Varför engagerar du dig, eller vad oroar dig med AI?\n\n\n\nHur vill du synas (fullt namn, förnamn, initialer eller anonymt)?\n\nOrt (valfritt):\n'
+)
+---
+
+<Base title="Därför engagerar vi oss" description="Människor i PauseAI Sverige berättar med egna ord varför de engagerar sig.">
+	<section class="container-wide intro">
+		<h1>Därför engagerar vi oss</h1>
+		<p class="lead">
+			PauseAI Sverige är vanliga människor: föräldrar, studenter, programmerare, pensionärer. Här berättar vi med
+			egna ord varför vi engagerar oss.
+		</p>
+	</section>
+
+	<section class="container-wide">
+		{
+			stories.length > 0 ? (
+				<div class="grid">
+					{stories.map((story) => (
+						<StoryCard {story} />
+					))}
+				</div>
+			) : (
+				<p>De första berättelserna kommer snart. Din kan bli en av dem.</p>
+			)
+		}
+	</section>
+
+	<section class="container share" id="dela">
+		<h2>Dela din berättelse</h2>
+		<p>
+			Varför engagerar du dig, eller vad oroar dig med AI? Skriv med egna ord, en mening räcker. Du bestämmer om du
+			vill synas med namn, initialer eller anonymt.
+		</p>
+		<p><a class="button" href={`mailto:sweden@pauseai.info?subject=${subject}&body=${body}`}>Mejla din berättelse</a></p>
+		<p class="muted">
+			Skicka till <a href="mailto:sweden@pauseai.info">sweden@pauseai.info</a>. Vi publicerar ingenting utan att du har
+			godkänt texten och hur du syns, och vi tar bort den när du ber om det.
+		</p>
+	</section>
+</Base>
+
+<style>
+	.intro {
+		padding-top: 2rem;
+	}
+	.lead {
+		max-width: 40rem;
+		font-size: 1.15rem;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+	.share {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--border);
+	}
+</style>

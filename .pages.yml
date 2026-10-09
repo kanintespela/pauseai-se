@@ -8,10 +8,10 @@ media:
   categories: [image]
 
 content:
-  - name: nyheter
-    label: Nyheter
+  - name: blogg
+    label: Blogg
     type: collection
-    path: src/content/nyheter
+    path: src/content/blogg
     filename: "{year}-{month}-{day}-{primary}.md"
     view:
       fields: [title, date]
@@ -23,27 +23,31 @@ content:
     fields:
       - name: title
         label: Rubrik
-        description: Kort och konkret, till exempel "Vi demonstrerade utanför riksdagen".
+        description: Kort och konkret, till exempel "Vi demonstrerade utanför riksdagen" eller "Därför behöver Sverige driva frågan i EU".
         type: string
         required: true
       - name: date
         label: Datum
-        description: Dagen nyheten publiceras. Nyheter sorteras efter datum, nyast först.
+        description: Dagen inlägget publiceras. Inläggen sorteras efter datum, nyast först.
         type: date
         required: true
         options:
           format: yyyy-MM-dd
+      - name: author
+        label: Författare
+        description: Valfri. Den som har skrivit inlägget, så som personen vill synas. Lämna tomt för att visa "PauseAI Sverige".
+        type: string
       - name: description
         label: Kort sammanfattning
-        description: Visas i nyhetslistan och när länken delas.
+        description: Visas i bloggen och när länken delas. En eller två meningar.
         type: text
       - name: image
         label: Bild
-        description: Valfri. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns om lov. Helst under 1 MB.
+        description: Valfri men rekommenderad, eftersom bloggen visar bilden som omslag. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns om lov. Helst under 1 MB.
         type: image
       - name: body
         label: Text
-        description: Själva nyheten. Använd knapparna eller skriv / för rubriker, listor, länkar och bilder.
+        description: Själva inlägget. Använd knapparna eller skriv / för rubriker, listor, länkar och bilder.
         type: rich-text
         options:
           format: markdown
@@ -90,6 +94,115 @@ content:
       - name: body
         label: Mer information
         description: Vad som händer, vem det passar och om man behöver anmäla sig.
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: insatser
+    label: Det vi har gjort
+    type: collection
+    path: src/content/insatser
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Rubrik
+        description: Vad vi gjorde, till exempel "Vi protesterade inför AI-toppmötet i Paris".
+        type: string
+        required: true
+      - name: date
+        label: Datum
+        description: När det hände. Sidan visar bara månad och år.
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: location
+        label: Plats
+        description: Valfri. Till exempel "Stockholm, Mynttorget".
+        type: string
+      - name: siffra
+        label: Siffra
+        description: Valfri. Det som visar hur stort det blev, till exempel "ca 30 deltagare" eller "möte med 4 riksdagsledamöter". Skriv bara siffror vi kan stå för.
+        type: string
+      - name: bilder
+        label: Bilder
+        description: Valfritt, 1–4 bilder. Använd bara bilder vi har rätt att använda, och fråga alltid personer som syns om lov. Helst under 1 MB.
+        type: image
+        list: true
+      - name: lankar
+        label: Länkar
+        description: Valfritt. Pressbevakning, eventsidan eller annat som visar vad som hände.
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Länktext
+            description: Säg vilken källa det är, till exempel "SvD" eller "PauseAI:s sida om protesten".
+            type: string
+            required: true
+          - name: url
+            label: Adress
+            description: Hela adressen, med https:// i början.
+            type: string
+            required: true
+      - name: body
+        label: Text
+        description: Ett eller två korta stycken. Vad hände, och vad ledde det till?
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: berattelser
+    label: Berättelser
+    type: collection
+    path: src/content/berattelser
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [namn, ort, kontaktperson]
+      primary: namn
+      sort: [date, namn]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: namn
+        label: Namn
+        description: Så som personen vill synas, till exempel "Anna", "Anna Svensson", "A.S." eller "Anonym". Publicera aldrig en berättelse utan personens godkännande av både text och namn.
+        type: string
+        required: true
+      - name: date
+        label: Datum
+        description: När berättelsen kom in. De nyaste visas först.
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: ort
+        label: Ort
+        description: Valfri. Till exempel "Göteborg".
+        type: string
+      - name: bild
+        label: Porträtt
+        description: Valfritt. Bara om personen själv har skickat bilden eller sagt ja till den.
+        type: image
+      - name: kontaktperson
+        label: Visa under Möt oss
+        description: Kryssa i för personer som vill vara kontaktpersoner och synas på startsidan.
+        type: boolean
+      - name: roll
+        label: Roll
+        description: Visas under Möt oss, till exempel "Kontaktperson i Stockholm" eller "Presskontakt".
+        type: string
+      - name: body
+        label: Berättelsen
+        description: Personens egna ord, så lite redigerat som möjligt. Första stycket visas som utdrag, så det bör kunna stå för sig självt.
         type: rich-text
         options:
           format: markdown

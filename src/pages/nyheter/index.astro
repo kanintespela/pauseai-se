@@ -1,50 +1,7 @@
 ---
-import { getCollection } from 'astro:content'
-import Base from '../../layouts/Base.astro'
-import { formatDate, url } from '../../lib'
-
-const nyheter = (await getCollection('nyheter')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+// Bloggen hette Nyheter fram till oktober 2026. Gamla länkar ska fortsätta fungera.
+import Redirect from '../../components/Redirect.astro'
+import { url } from '../../lib'
 ---
 
-<Base title="Nyheter" description="Nyheter från PauseAI Sverige.">
-	<div class="container prose">
-		<h1>Nyheter</h1>
-		{nyheter.length === 0 && <p>Inga nyheter ännu.</p>}
-		<ul class="list">
-			{
-				nyheter.map((nyhet) => (
-					<li>
-						<time datetime={nyhet.data.date.toISOString()} class="muted">{formatDate(nyhet.data.date)}</time>
-						<h2><a href={url(`/nyheter/${nyhet.id}`)}>{nyhet.data.title}</a></h2>
-						{nyhet.data.description && <p>{nyhet.data.description}</p>}
-					</li>
-				))
-			}
-		</ul>
-	</div>
-</Base>
-
-<style>
-	.list {
-		list-style: none;
-		padding: 0;
-	}
-	li {
-		padding: 1.25rem 0;
-		border-bottom: 1px solid var(--border);
-	}
-	h2 {
-		margin: 0.25rem 0;
-		font-size: 1.6rem;
-	}
-	h2 a {
-		color: var(--text);
-		text-decoration: none;
-	}
-	h2 a:hover {
-		color: var(--brand-dark);
-	}
-	p {
-		margin: 0.25rem 0 0;
-	}
-</style>
+<Redirect to={url('/blogg')} />

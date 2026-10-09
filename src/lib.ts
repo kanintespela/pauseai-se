@@ -4,7 +4,7 @@ export function url(path = '/'): string {
 	return base + (path.startsWith('/') ? path : `/${path}`)
 }
 
-// Datum utan tid (nyheter) lagras som midnatt UTC.
+// Datum utan tid (blogginlägg) lagras som midnatt UTC.
 const dateFormat = new Intl.DateTimeFormat('sv-SE', { dateStyle: 'long', timeZone: 'UTC' })
 const dateTimeFormat = new Intl.DateTimeFormat('sv-SE', {
 	dateStyle: 'full',
@@ -12,15 +12,34 @@ const dateTimeFormat = new Intl.DateTimeFormat('sv-SE', {
 	timeZone: 'Europe/Stockholm'
 })
 
+const monthFormat = new Intl.DateTimeFormat('sv-SE', { month: 'long', year: 'numeric', timeZone: 'UTC' })
+
 export const formatDate = (date: Date) => dateFormat.format(date)
+export const formatMonth = (date: Date) => monthFormat.format(date)
 export const formatDateTime = (date: Date) => dateTimeFormat.format(date)
+
+/** Adress till en uppladdad bild. Bilder från Pages CMS börjar med /bilder och behöver base. */
+export const imageUrl = (src: string) => (src.startsWith('/') ? url(src) : src)
+
+/** Första stycket i en Markdown-text som vanlig text, kortat till ungefär max tecken. */
+export function excerpt(markdown = '', max = 220): string {
+	const first = markdown.trim().split(/\n\s*\n/)[0] ?? ''
+	const text = first
+		.replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+		.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+		.replace(/[*_`#>]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim()
+	if (text.length <= max) return text
+	return text.slice(0, text.lastIndexOf(' ', max)) + ' …'
+}
 
 export const menu = [
 	{ href: '/risker', label: 'Risker' },
 	{ href: '/forslaget', label: 'Förslaget' },
 	{ href: '/engagera-dig', label: 'Engagera dig' },
 	{ href: '/evenemang', label: 'Evenemang' },
-	{ href: '/nyheter', label: 'Nyheter' },
+	{ href: '/blogg', label: 'Blogg' },
 	{ href: '/faq', label: 'FAQ' },
 	{ href: '/om-oss', label: 'Om oss' }
 ]

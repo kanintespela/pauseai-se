@@ -19,7 +19,7 @@ const upcoming = readEvents().filter((e) => {
 	return day >= today && day <= addDays(today, 14)
 })
 
-const newsDir = 'src/content/nyheter'
+const newsDir = 'src/content/blogg'
 const news = fs
 	.readdirSync(newsDir)
 	.filter((f) => f.endsWith('.md'))
@@ -36,7 +36,7 @@ const whatsapp = [
 	...(upcoming.length
 		? ['*Kommande evenemang*', ...upcoming.flatMap((e) => [`• *${e.title}*, ${formatDateTime(e.date)}, ${e.location}`, `  ${site}/evenemang/${e.id}`])]
 		: ['Inga evenemang inlagda de närmaste två veckorna. Ordnar du något? Lägg upp det på sajten!']),
-	...(news.length ? ['', '*Nytt på sajten*', ...news.flatMap((n) => [`• ${n.title}`, `  ${site}/nyheter/${n.id}`])] : []),
+	...(news.length ? ['', '*Nytt i bloggen*', ...news.flatMap((n) => [`• ${n.title}`, `  ${site}/blogg/${n.id}`])] : []),
 	'',
 	`Alla evenemang i din kalender: ${site}/evenemang`
 ]

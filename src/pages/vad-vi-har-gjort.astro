@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../layouts/Base.astro'
+import InsatsList from '../components/InsatsList.astro'
+import { url } from '../lib'
+
+const insatser = (await getCollection('insatser')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<Base title="Det vi har gjort" description="Protester, samtal med politiker och annat PauseAI Sverige har gjort.">
+	<article class="container prose">
+		<h1>Det vi har gjort</h1>
+		<p>
+			PauseAI Sverige är volontärer som lägger sin fritid på att få Sverige att ta riskerna med AI på allvar. Här är
+			det vi har gjort, det senaste först.
+		</p>
+		<InsatsList {insatser} />
+		<p class="muted">
+			Vi har också varit med i PauseAI:s internationella <a href={url('/protester')}>protester</a>. Har vi missat
+			något? Mejla <a href="mailto:sweden@pauseai.info">sweden@pauseai.info</a>.
+		</p>
+		<section class="next">
+			<h2>Var med på det som händer härnäst</h2>
+			<p class="actions">
+				<a class="button" href={url('/engagera-dig')}>Gå med</a>
+				<a class="button secondary" href={url('/evenemang')}>Kommande evenemang</a>
+			</p>
+		</section>
+	</article>
+</Base>
+
+<style>
+	.next {
+		margin-top: 3rem;
+		padding: 1.5rem;
+		background: var(--brand-subtle);
+	}
+	.next h2 {
+		margin-top: 0;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 0;
+	}
+</style>
