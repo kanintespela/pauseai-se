@@ -1,15 +1,18 @@
 name: Evenemang från formulär
 
-# När någon fyller i formuläret "Föreslå ett evenemang" (ett ärende med
-# etiketten nytt-evenemang) skapas en PR med evenemanget. Det publiceras
-# först när någon i webbgruppen slår ihop PR:en.
+# När någon fyller i formuläret "Föreslå ett evenemang" skapas en PR med
+# evenemanget. Det publiceras först när någon i webbgruppen slår ihop PR:en.
+#
+# Formuläret sätter etiketten nytt-evenemang, men GitHub sätter bara etiketter
+# som redan finns. Därför känns ärendet också igen på rubriken, och etiketten
+# skapas här om den saknas.
 #
 # Kräver att "Allow GitHub Actions to create and approve pull requests" är
 # påslaget under Settings → Actions → General.
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled]
 
 permissions:
   contents: write
@@ -21,13 +24,21 @@ concurrency:
 
 jobs:
   skapa:
-    if: contains(github.event.issue.labels.*.name, 'nytt-evenemang') && github.event.issue.state == 'open'
+    if: >-
+      github.event.issue.state == 'open' &&
+      (contains(github.event.issue.labels.*.name, 'nytt-evenemang') || startsWith(github.event.issue.title, 'Evenemang:'))
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
       NUMMER: ${{ github.event.issue.number }}
     steps:
       - uses: actions/checkout@v7
+
+      - name: Sätt etiketten nytt-evenemang
+        run: |
+          gh label create nytt-evenemang --color 0E8A16 --description "Förslag från formuläret Föreslå ett evenemang" --force
+          gh issue edit "$NUMMER" --add-label nytt-evenemang
+
       - uses: actions/setup-node@v7
         with:
           node-version: 22
